@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <div class="container body-content title">
+        <h2>Search Results</h2>
+    </div>
+
+    <div class="search">
+        <form th:action="@{/search}" method = "get">
+            <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
+            <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="What are you hungry for?">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+    <!-- filters -->
+
+    <div class="container body-content subtitle">
+        <span th:text="${numberOfRecipesReturned}"></span><span > suggested recipe</span><span th:if="${numberOfRecipesReturned > 1 || numberOfRecipesReturned == 0}">s</span>
+        <b/>
+    </div>
+
+    <th:block th:each="recipe : ${recipes}">
+        <div class="recipe-listing">
+            <p>
+                <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
+            </p>
+        </div>
+    </th:block>
+</div>
+
+<footer>
+    <!-- line breaks to bring footer to bottom; fix with css later -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="https://icons8.com/icon/59878/search">Search icon by Icons8</a>
+</footer>
+
+</body>
+</html>
