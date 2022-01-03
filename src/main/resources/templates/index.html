@@ -12,9 +12,11 @@
     </div>
 
         <div class="search">
-            <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
-            <input type="text" name="searchTerm" class="form-control" placeholder="What are you hungry for?">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <form th:action="@{/search}" method = "get">
+                <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
+                <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="What are you hungry for?">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
         </div>
 
     <!-- filters -->
