@@ -10,14 +10,20 @@ import javax.persistence.Id;
 public class RecipeStep {
 
     @Id
+    @GeneratedValue
+    private int stepId;
+
+    @NotNull
     private int stepNumber;
 
     @NotNull
     private String stepDescription;
 
-    //Set up recipeID as foreign key?
+    private int recipeId;
 
 
+    public RecipeStep() {
+    }
 
     public int getStepNumber() {
         return stepNumber;
@@ -34,4 +40,10 @@ public class RecipeStep {
     public void setStepDescription(String stepDescription) {
         this.stepDescription = stepDescription;
     }
-}
+
+    public int getStepId() {
+        return stepId;
+    }
+
+    }
+

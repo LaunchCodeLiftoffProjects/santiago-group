@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Recipe {
     @Id
     @GeneratedValue
-    private int id;
+    private int recipeId;
 
     @NotNull
     private String name;
@@ -19,8 +19,11 @@ public class Recipe {
     //@NotNull
     private String description;
 
-    public int getId() {
-        return id;
+    public Recipe() {
+    }
+
+    public int getRecipeId() {
+        return recipeId;
     }
 
     public String getName() {
@@ -38,17 +41,5 @@ public class Recipe {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Recipe recipe = (Recipe) o;
-        return getId() == recipe.getId() && Objects.equals(getName(), recipe.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName());
-    }
 }
+

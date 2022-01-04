@@ -12,25 +12,23 @@ public class Measurement {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int measurementId;
 
     @NotNull
-    private double quantity;
+
 
     private String measurement;
 
-    public int getId() {
-        return id;
+
+
+    public Measurement() {
+    }
+
+    public int getMeasurementId() {
+        return measurementId;
     }
 
 
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
 
     public String getMeasurement() {
         return measurement;
