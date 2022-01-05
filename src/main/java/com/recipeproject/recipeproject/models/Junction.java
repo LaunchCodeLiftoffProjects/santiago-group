@@ -24,4 +24,7 @@ public class Junction {
 
     private String prepNotes;
 
+    public Junction() {
+    }
+
 }
