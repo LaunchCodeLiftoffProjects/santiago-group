@@ -3,17 +3,18 @@ package com.recipeproject.recipeproject.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "junction")
 public class Junction {
     @Id
     @GeneratedValue
    private int junctionID;
 
 
-    @OneToMany
+
     private int recipeId;
-    @OneToMany
+    @ManyToOne
     private int ingredientId;
-    @OneToMany
+    @ManyToOne
     private int measurementID;
 
     private String amount;
