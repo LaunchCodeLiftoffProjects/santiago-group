@@ -3,7 +3,7 @@ package com.recipeproject.recipeproject.models;
 import javax.persistence.*;
 
 @Entity
-//@Table(name = "junction")
+
 public class Junction {
     @Id
     @GeneratedValue
