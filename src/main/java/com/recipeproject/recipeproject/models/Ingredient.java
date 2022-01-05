@@ -1,4 +1,4 @@
-package com.regitcipeproject.recipeproject.models;
+package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
 
