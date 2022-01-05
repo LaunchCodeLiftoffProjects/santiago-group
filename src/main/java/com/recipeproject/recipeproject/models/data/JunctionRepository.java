@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.recipeproject.recipeproject.models.Junction;
 
 @Repository
-public interface JunctionRepository extends CrudRepository {
+public interface JunctionRepository extends CrudRepository <Junction, Integer>{
 }

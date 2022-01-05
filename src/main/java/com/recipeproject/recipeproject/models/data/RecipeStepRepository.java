@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.recipeproject.recipeproject.models.RecipeStep;
 
 @Repository
-public interface RecipeStepRepository extends CrudRepository {
+public interface RecipeStepRepository extends CrudRepository <RecipeStep, Integer>{
 }

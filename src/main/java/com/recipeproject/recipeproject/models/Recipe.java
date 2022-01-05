@@ -2,15 +2,14 @@ package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Recipe {
     @Id
     @GeneratedValue
+
     private int recipeId;
 
     @NotNull

@@ -3,15 +3,14 @@ package com.recipeproject.recipeproject.models;
 import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Measurement {
 
     @Id
     @GeneratedValue
+
     private int measurementId;
 
     @NotNull

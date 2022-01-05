@@ -2,10 +2,8 @@ package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
 import com.recipeproject.recipeproject.models.Junction;
 
 //Notes for later:  Recipe upload screen should check ingredient name against ingredient
@@ -16,7 +14,7 @@ public class Ingredient {
 
     @Id
     @GeneratedValue
-    @OneToMany(mappedBy = "junction")
+
     private int ingredientId;
 
     @NotNull

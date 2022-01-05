@@ -3,19 +3,22 @@ package com.recipeproject.recipeproject.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "junction")
+//@Table(name = "junction")
 public class Junction {
     @Id
     @GeneratedValue
    private int junctionID;
 
 
-
-    private int recipeId;
     @ManyToOne
-    private int ingredientId;
+    @JoinColumn(name = "recipeId")
+    private Recipe recipe;
     @ManyToOne
-    private int measurementID;
+    @JoinColumn(name = "ingredientId")
+    private Ingredient ingredient;
+    @ManyToOne
+    @JoinColumn(name = "measurementId")
+    private Measurement measurement;
 
     private String amount;
 

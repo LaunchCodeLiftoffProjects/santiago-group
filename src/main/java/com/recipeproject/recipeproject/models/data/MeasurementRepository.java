@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.recipeproject.recipeproject.models.Measurement;
 
 @Repository
-public interface MeasurementRepository extends CrudRepository {
+public interface MeasurementRepository extends CrudRepository <Measurement, Integer>{
 }
