@@ -3,6 +3,7 @@ package com.recipeproject.recipeproject.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -10,13 +11,16 @@ public class Recipe {
     @Id
     @GeneratedValue
 
-    private int recipeId;
+    private Integer recipeId;
 
     @NotNull
     private String name;
 
     //@NotNull
     private String description;
+
+
+
 
     public Recipe() {
     }

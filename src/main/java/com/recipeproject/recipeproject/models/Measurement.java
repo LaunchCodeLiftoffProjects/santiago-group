@@ -11,7 +11,7 @@ public class Measurement {
     @Id
     @GeneratedValue
 
-    private int measurementId;
+    private Integer measurementId;
 
     @NotNull
 

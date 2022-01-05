@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Junction {
     @Id
     @GeneratedValue
-   private int junctionID;
+   private Integer junctionID;
 
 
     @ManyToOne

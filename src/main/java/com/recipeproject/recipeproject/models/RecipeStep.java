@@ -14,12 +14,12 @@ public class RecipeStep {
     private int stepId;
 
     @NotNull
-    private int stepNumber;
+    private Integer stepNumber;
 
     @NotNull
     private String stepDescription;
 
-    private int recipeId;
+    private Integer recipeId;
 
 
     public RecipeStep() {

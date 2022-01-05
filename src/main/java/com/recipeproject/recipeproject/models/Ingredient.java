@@ -15,7 +15,7 @@ public class Ingredient {
     @Id
     @GeneratedValue
 
-    private int ingredientId;
+    private Integer ingredientId;
 
     @NotNull
     private String name;
