@@ -10,7 +10,6 @@ import java.util.Objects;
 public class Recipe {
     @Id
     @GeneratedValue
-
     private Integer recipeId;
 
     @NotNull
@@ -20,7 +19,9 @@ public class Recipe {
     private String description;
 
 
-
+    @OneToMany
+    @JoinColumn(name = "recipeId")
+    private List <RecipeStep> recipeSteps;
 
     public Recipe() {
     }

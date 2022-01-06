@@ -16,7 +16,6 @@ public class Ingredient {
     @GeneratedValue
 
     private Integer ingredientId;
-
     @NotNull
     private String name;
 

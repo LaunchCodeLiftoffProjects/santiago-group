@@ -2,10 +2,8 @@ package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 public class RecipeStep {
 
@@ -18,6 +16,7 @@ public class RecipeStep {
 
     @NotNull
     private String stepDescription;
+
 
     private Integer recipeId;
 
