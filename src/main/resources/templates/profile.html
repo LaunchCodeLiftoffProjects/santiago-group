@@ -7,6 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 
 
 <div class="container body-content">
@@ -17,6 +18,8 @@
         <li><a data-toggle="tab" href="#menu2">Account</a></li>
         <li><a data-toggle="tab" href="#menu3">Settings</a></li>
     </ul>
+</div>
+
 
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
@@ -29,14 +32,15 @@
         </div>
         <div id="menu2" class="tab-pane fade">
             <h3>Account</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            <div class="border">
+                <div>Hi</div>
+            </div>
         </div>
         <div id="menu3" class="tab-pane fade">
             <h3>Settings</h3>
             <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         </div>
     </div>
-</div>
 
 <footer>
     <!-- line breaks to bring footer to bottom; take out when page is filled in with content -->
