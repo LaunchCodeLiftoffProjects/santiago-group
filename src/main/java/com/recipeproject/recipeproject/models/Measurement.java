@@ -3,34 +3,31 @@ package com.recipeproject.recipeproject.models;
 import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Measurement {
 
     @Id
     @GeneratedValue
-    private int id;
+
+    private Integer measurementId;
 
     @NotNull
-    private double quantity;
+
 
     private String measurement;
 
-    public int getId() {
-        return id;
+
+
+    public Measurement() {
+    }
+
+    public int getMeasurementId() {
+        return measurementId;
     }
 
 
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
 
     public String getMeasurement() {
         return measurement;

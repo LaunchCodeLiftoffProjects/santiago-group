@@ -29,7 +29,7 @@
     <th:block th:each="recipe : ${recipes}">
         <div class="recipe-listing">
             <p>
-                <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
+                <a th:href="@{'/view/' + ${recipe.recipeId}}" th:text="${recipe.name}"></a>
             </p>
         </div>
     </th:block>

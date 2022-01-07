@@ -20,6 +20,9 @@ public class User {
     //obviously change this once we start getting proper login stuff
 
 
+    public User() {
+    }
+
     public String getEmail() {
         return email;
     }
