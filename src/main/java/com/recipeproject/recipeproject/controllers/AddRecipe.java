@@ -36,7 +36,7 @@ public class AddRecipe {
                                     Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            return "add";
+            return "index";
         }
         recipeRepository.save(newRecipe);
 
@@ -54,6 +54,6 @@ public class AddRecipe {
         for(RecipeStep recipeStep: steps){
             recipeStepRepository.save(recipeStep);
         }
-        return "redirect:";
+        return "index";
     }
 }
