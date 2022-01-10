@@ -14,8 +14,6 @@ public class Measurement {
     private Integer measurementId;
 
     @NotNull
-
-
     private String measurement;
 
 
