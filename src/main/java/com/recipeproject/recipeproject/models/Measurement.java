@@ -21,6 +21,10 @@ public class Measurement {
     public Measurement() {
     }
 
+    public Measurement(String measurement) {
+        this.measurement = measurement;
+    }
+
     public int getMeasurementId() {
         return measurementId;
     }

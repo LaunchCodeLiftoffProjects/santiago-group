@@ -1,10 +1,7 @@
 package com.recipeproject.recipeproject.controllers;
 
 import com.recipeproject.recipeproject.models.*;
-import com.recipeproject.recipeproject.models.data.IngredientRepository;
-import com.recipeproject.recipeproject.models.data.JunctionRepository;
-import com.recipeproject.recipeproject.models.data.RecipeRepository;
-import com.recipeproject.recipeproject.models.data.RecipeStepRepository;
+import com.recipeproject.recipeproject.models.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +26,8 @@ public class AddRecipe {
     private RecipeStepRepository recipeStepRepository;
     @Autowired
     private JunctionRepository junctionRepository;
+    @Autowired
+    private MeasurementRepository measurementRepository;
 
     //This is totally untested other than ensuring it doesn't break the whole program
     @PostMapping("add")
@@ -44,7 +43,8 @@ public class AddRecipe {
         for (Ingredient ingredient: tempList) {
             Junction newRow = new Junction(newRecipe, ingredient, ingredient.getMeasurement(), ingredient.getAmount(), ingredient.getPrepNotes());
             junctionRepository.save(newRow);
-
+            Measurement newMeas = new Measurement(ingredient.getMeasurement().getMeasurement());
+            measurementRepository.save(newMeas);
             if(!ingredientRepository.findByName(ingredient.getName())){
                 ingredientRepository.save(ingredient);
             }
