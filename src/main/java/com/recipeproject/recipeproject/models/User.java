@@ -1,46 +1,36 @@
 package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-
-    @Id
-    private String email;
+public class User extends AbstractEntity {
 
     @NotNull
     private String username;
 
     @NotNull
-    private String password;
-    //obviously change this once we start getting proper login stuff
+    private String pwHash;
 
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public String getEmail() {
-        return email;
-    }
+    public User() {}
 
-    public void setEmail(String email) {
-        this.email = email;
+    public User(String username, String password) {
+        this.username = username;
+        this.pwHash = encoder.encode(password);
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
