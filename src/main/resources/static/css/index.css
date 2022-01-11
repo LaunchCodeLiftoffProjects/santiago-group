@@ -2,7 +2,7 @@
 
 .title{
     text-align: center;
-    padding-top: 50px
+    padding-top: 25px
 }
 
 body {
@@ -56,4 +56,6 @@ body {
 
 .tabTitle {
     text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
