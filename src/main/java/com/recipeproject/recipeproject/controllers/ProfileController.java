@@ -7,9 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/profile")
 @Controller
+<<<<<<< Updated upstream:src/main/java/com/recipeproject/recipeproject/controllers/ProfileController.java
 public class ProfileController {
-    @RequestMapping("")
+    @RequestMapping("Profile")
     public String index(Model model) {
+=======
+public class FormController {
+    @RequestMapping("Form")
+    public String form(Model model) {
+>>>>>>> Stashed changes:src/main/java/com/recipeproject/recipeproject/controllers/FormController.java
 
         return "profile";
     }
