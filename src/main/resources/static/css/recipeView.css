@@ -1,9 +1,9 @@
 .recipe-description {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.25rem;
 }
 
 .recipe-text {
-    font-size:1.5rem;
+    font-size:1rem;
     padding-top:35px;
 }

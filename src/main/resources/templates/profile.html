@@ -4,143 +4,252 @@
     <div th:replace="fragments :: page-header"></div>
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
-<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
 <link th:href="@{/css/profile.css}" rel="stylesheet" />
 
-<div class="title">
-    <h1>My Profile</h1>
-</div>
 
-<div class="container body-content">
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Favorites</a></li>
-        <li><a data-toggle="tab" href="#menu1">My Recipes</a></li>
-        <li><a data-toggle="tab" href="#menu2">Account</a></li>
-        <li><a data-toggle="tab" href="#menu3">Settings</a></li>
-    </ul>
-</div>
+    <div class="profile-title">
+        My Profile
+    </div>
+<div class="container">
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-favorites-tab" data-bs-toggle="tab" data-bs-target="#nav-favorites" type="button" role="tab" aria-controls="nav-favorites" aria-selected="true">Favorites</button>
+        <button class="nav-link" id="nav-recipes-tab" data-bs-toggle="tab" data-bs-target="#nav-recipes" type="button" role="tab" aria-controls="nav-recipes" aria-selected="false">My Recipes</button>
+        <button class="nav-link" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="false">Account</button>
+        <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-settings" aria-selected="false">Settings</button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-favorites" role="tabpanel" aria-labelledby="nav-favorites-tab">
+        <div class="tab-title">
+            My Favorite Recipes
+        </div>
+        <table class="table table-striped table-hover mt-3">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Prep Time</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Tacos</td>
+                <td>30 Minutes</td>
+                <td>
+                    <a th:href="@{/recipe-view}">
+                        View
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mac N' Cheese</td>
+                <td>20 Minutes</td>
+                <td>
+                    <a th:href="@{/recipe-view}">
+                        View
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Apple Pie</td>
+                <td>60 Minutes</td>
+                <td>
+                    <a th:href="@{/recipe-view}">
+                        View
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="nav-recipes" role="tabpanel" aria-labelledby="nav-recipes-tab">
+        <div class="tab-title">
+            My Own Recipes
+        </div>
+        <table class="table table-striped table-hover mt-3">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Prep Time</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Tacos</td>
+                <td>30 Minutes</td>
+                <td>
+                    <a th:href="@{/recipe-view}">
+                        View
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mac N' Cheese</td>
+                <td>20 Minutes</td>
+                <td>
+                    <a th:href="@{/recipe-view}">
+                        View
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Apple Pie</td>
+                <td>60 Minutes</td>
+                <td>
+                    <a th:href="@{/recipe-view}">
+                        View
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
 
+    </div>
+    <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
 
-<div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-        <div class="tabTitle">
-            <h3>Favorites</h3>
-        </div>
-        <div class="container">
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Prep Time</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Tacos</td>
-                        <td>30 Minutes</td>
-                        <td>
-                            <a th:href="@{/recipe-view}">
-                                View
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mac N' Cheese</td>
-                        <td>20 Minutes</td>
-                        <td>
-                            <a th:href="@{/recipe-view}">
-                                View
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Apple Pie</td>
-                        <td>60 Minutes</td>
-                        <td>
-                            <a th:href="@{/recipe-view}">
-                                View
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-        <div class="tabTitle">
-            <h3>My Recipes</h3>
-        </div>
-        <div class="container">
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Prep Time</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Tacos</td>
-                    <td>30 Minutes</td>
-                    <td>
-                        <a th:href="@{/recipe-view}">
-                            View
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Mac N' Cheese</td>
-                    <td>20 Minutes</td>
-                    <td>
-                        <a th:href="@{/recipe-view}">
-                            View
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Apple Pie</td>
-                    <td>60 Minutes</td>
-                    <td>
-                        <a th:href="@{/recipe-view}">
-                            View
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-        <div class="tabTitle">
-        <h3>Account</h3>
-        </div>
-        <div class="container">
-            <div class="border">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies leo integer malesuada nunc vel risus. Malesuada fames ac turpis egestas. Eleifend quam adipiscing vitae proin sagittis nisl. Id diam maecenas ultricies mi eget mauris pharetra et. Viverra aliquet eget sit amet tellus cras adipiscing enim. Sollicitudin ac orci phasellus egestas tellus. Mattis rhoncus urna neque viverra. Netus et malesuada fames ac. Vivamus arcu felis bibendum ut tristique et. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Erat velit scelerisque in dictum non consectetur a erat nam. Adipiscing tristique risus nec feugiat in fermentum. Sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Id porta nibh venenatis cras sed. Aliquet enim tortor at auctor urna nunc id cursus metus. Vitae proin sagittis nisl rhoncus mattis. Eget sit amet tellus cras. Risus commodo viverra maecenas accumsan lacus. Nisl rhoncus mattis rhoncus urna.
-            </div>
-        </div>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-        <div class="tabTitle">
-            <h3>Settings</h3>
-        </div>
     </div>
 </div>
+</div>
+<!--<div class="container body-content">-->
+<!--    <ul class="nav nav-tabs">-->
+<!--        <li class="active"><a data-toggle="tab" href="#home">Favorites</a></li>-->
+<!--        <li><a data-toggle="tab" href="#menu1">My Recipes</a></li>-->
+<!--        <li><a data-toggle="tab" href="#menu2">Account</a></li>-->
+<!--        <li><a data-toggle="tab" href="#menu3">Settings</a></li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+
+<!--<div class="tab-content">-->
+<!--    <div id="home" class="tab-pane fade in active">-->
+<!--        <div class="tabTitle">-->
+<!--            <h3>Favorites</h3>-->
+<!--        </div>-->
+<!--        <div class="container">-->
+<!--            <table class="table table-striped table-hover">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th scope="col">#</th>-->
+<!--                    <th scope="col">Name</th>-->
+<!--                    <th scope="col">Prep Time</th>-->
+<!--                    <th scope="col"></th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">1</th>-->
+<!--                        <td>Tacos</td>-->
+<!--                        <td>30 Minutes</td>-->
+<!--                        <td>-->
+<!--                            <a th:href="@{/recipe-view}">-->
+<!--                                View-->
+<!--                            </a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">2</th>-->
+<!--                        <td>Mac N' Cheese</td>-->
+<!--                        <td>20 Minutes</td>-->
+<!--                        <td>-->
+<!--                            <a th:href="@{/recipe-view}">-->
+<!--                                View-->
+<!--                            </a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th scope="row">3</th>-->
+<!--                        <td>Apple Pie</td>-->
+<!--                        <td>60 Minutes</td>-->
+<!--                        <td>-->
+<!--                            <a th:href="@{/recipe-view}">-->
+<!--                                View-->
+<!--                            </a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div id="menu1" class="tab-pane fade">-->
+<!--        <div class="tabTitle">-->
+<!--            <h3>My Recipes</h3>-->
+<!--        </div>-->
+<!--        <div class="container">-->
+<!--            <table class="table table-striped table-hover">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th scope="col">#</th>-->
+<!--                    <th scope="col">Name</th>-->
+<!--                    <th scope="col">Prep Time</th>-->
+<!--                    <th scope="col"></th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                    <th scope="row">1</th>-->
+<!--                    <td>Tacos</td>-->
+<!--                    <td>30 Minutes</td>-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/recipe-view}">-->
+<!--                            View-->
+<!--                        </a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th scope="row">2</th>-->
+<!--                    <td>Mac N' Cheese</td>-->
+<!--                    <td>20 Minutes</td>-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/recipe-view}">-->
+<!--                            View-->
+<!--                        </a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th scope="row">3</th>-->
+<!--                    <td>Apple Pie</td>-->
+<!--                    <td>60 Minutes</td>-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/recipe-view}">-->
+<!--                            View-->
+<!--                        </a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div id="menu2" class="tab-pane fade">-->
+<!--        <div class="tabTitle">-->
+<!--        <h3>Account</h3>-->
+<!--        </div>-->
+<!--        <div class="container">-->
+<!--            <div class="border">-->
+<!--                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies leo integer malesuada nunc vel risus. Malesuada fames ac turpis egestas. Eleifend quam adipiscing vitae proin sagittis nisl. Id diam maecenas ultricies mi eget mauris pharetra et. Viverra aliquet eget sit amet tellus cras adipiscing enim. Sollicitudin ac orci phasellus egestas tellus. Mattis rhoncus urna neque viverra. Netus et malesuada fames ac. Vivamus arcu felis bibendum ut tristique et. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Erat velit scelerisque in dictum non consectetur a erat nam. Adipiscing tristique risus nec feugiat in fermentum. Sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Id porta nibh venenatis cras sed. Aliquet enim tortor at auctor urna nunc id cursus metus. Vitae proin sagittis nisl rhoncus mattis. Eget sit amet tellus cras. Risus commodo viverra maecenas accumsan lacus. Nisl rhoncus mattis rhoncus urna.-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div id="menu3" class="tab-pane fade">-->
+<!--        <div class="tabTitle">-->
+<!--            <h3>Settings</h3>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <footer>
     <!-- line breaks to bring footer to bottom; take out when page is filled in with content -->
