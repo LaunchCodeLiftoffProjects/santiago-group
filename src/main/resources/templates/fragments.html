@@ -13,22 +13,44 @@
 
 <body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top background-color: #E98973">
-    <div class="container">
-        <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">Recipes</a>
+<div th:fragment="page-header">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+        <div class="container-fluid" style="margin-left: 2px;">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <div id="navbarNav">
+                <ul class="nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a th:href="@{/add}">Sign Up</a></li>
-                <li><a th:href="@{/logout}">Login</a></li>
-                <a th:href="@{/profile}">
-                    <img class="profile-img" src="https://img.icons8.com/external-becris-flat-becris/64/000000/external-user-avatars-becris-flat-becris.png"/>
-                </a>
-            </ul>
-        </div>
-    </div>
+    </nav>
 </div>
+
+<!--<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top background-color: #E98973">-->
+<!--    <div class="container">-->
+<!--        <div class="navbar-header">-->
+<!--            <a th:href="@{/}" class="navbar-brand">Recipes</a>-->
+<!--        </div>-->
+<!--        <div class="navbar-collapse collapse">-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li><a th:href="@{/add}">Sign Up</a></li>-->
+<!--                <li><a th:href="@{/logout}">Login</a></li>-->
+<!--                <a th:href="@{/profile}">-->
+<!--                    <img class="profile-img" src="https://img.icons8.com/external-becris-flat-becris/64/000000/external-user-avatars-becris-flat-becris.png"/>-->
+<!--                </a>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>
