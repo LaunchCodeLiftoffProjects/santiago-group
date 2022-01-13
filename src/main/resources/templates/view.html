@@ -18,23 +18,21 @@
                 <img class="recipe-img" src="/images/beefTacos.jpeg">
             </div>
             <div class="col-md">
-                <div class="fw-bold fs-2">Tacos</div>
+                <div class="fw-bold fs-2" th:text="${recipe.name}"></div>
+                <div class="recipe-description" th:text="${recipe.description}"></div>
                 <div class="recipe-description">Preparation Time: <span> 30 minutes</span></div>
                 <div class="recipe-description">Ingredients: </div>
                 <div class="row">
                     <div class="col">
                         <ul class="recipe-description">
-                            <li> 1 lb ground beef</li>
-                            <li> 8 tortillas</li>
-                            <li> 1 tbsp cumin</li>
-                            <li> 1 tsp cayenne pepper</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul class="recipe-description">
-                            <li> 1 cup shredded cheese</li>
-                            <li> 1 lettuce head</li>
-                            <li> 1 cup pico de gallo</li>
+                            <div class="col-sm-6" th:each="item : ${recipeIngredients}">
+                                <li>
+                                    <span th:if="${item.amount}" th:text="${item.amount}"></span>
+                                    <span th:if="${item.measurement}" th:text="${item.measurement.measurement}"></span>
+                                    <span th:text="${item.ingredient.name}"></span>
+                                    <span class="prep-notes" th:if="${item.prepNotes}" th:text="${item.prepNotes}"></span>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -43,14 +41,11 @@
         <div class="recipe-text fw-bold fs-3">
             Directions:
         </div>
-        <div class="recipe-text">
-            Step 1:
-            Heat a non-stick, medium size sauté pan over medium-high heat; on the stove top. Place raw ground beef into pan and brown (approximately 5 minutes); then drain. Place drained cooked beef back into the non-stick sauté pan, add taco seasoning and water. Continue to cook until water is gone and beef is thoroughly mixed with seasoning. Reserve warm.
-        </div>
-        <div class="recipe-text">
-            Step 2:
-            Fill each tortilla with approximately ¼ cup of reserved taco meat, top with 1 tablespoon of lettuce, 1 tablespoon of pico de gallo and 1 tablespoon of shredded cheese.
-        </div>
+        <th:block th:each="step : ${recipe.recipeSteps}" class="recipe-text">
+            Step <span th:text="${step.stepNumber}"></span>:
+            <span th:text="${step.stepDescription}"></span>
+            <br/>
+        </th:block>
     </div>
 </div>
 

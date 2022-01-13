@@ -19,10 +19,13 @@ public class Recipe {
     //@NotNull
     private String description;
 
-
     @OneToMany
     @JoinColumn(name = "recipeId")
     private List <RecipeStep> recipeSteps;
+
+    @OneToMany
+    @JoinColumn(name = "recipeId")
+    private List<Junction> ingredientJunctions;
 
     public Recipe() {
     }
@@ -47,6 +50,21 @@ public class Recipe {
         this.description = description;
     }
 
+    public List<RecipeStep> getRecipeSteps() {
+        return recipeSteps;
+    }
+
+    public void setRecipeSteps(List<RecipeStep> recipeSteps) {
+        this.recipeSteps = recipeSteps;
+    }
+
+    public List<Junction> getIngredientJunctions() {
+        return ingredientJunctions;
+    }
+
+    public void setIngredientJunctions(List<Junction> ingredientJunctions) {
+        this.ingredientJunctions = ingredientJunctions;
+    }
 
     @Override
     public int hashCode() {
