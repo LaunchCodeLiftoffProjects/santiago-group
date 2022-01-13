@@ -16,10 +16,10 @@
 <div class="container">
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-favorites-tab" data-bs-toggle="tab" data-bs-target="#nav-favorites" type="button" role="tab" aria-controls="nav-favorites" aria-selected="true">Favorites</button>
-        <button class="nav-link" id="nav-recipes-tab" data-bs-toggle="tab" data-bs-target="#nav-recipes" type="button" role="tab" aria-controls="nav-recipes" aria-selected="false">My Recipes</button>
-        <button class="nav-link" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="false">Account</button>
-        <button class="nav-link" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-settings" aria-selected="false">Settings</button>
+        <button class="nav-link active link-dark" id="nav-favorites-tab" data-bs-toggle="tab" data-bs-target="#nav-favorites" type="button" role="tab" aria-controls="nav-favorites" aria-selected="true">Favorites</button>
+        <button class="nav-link link-dark" id="nav-recipes-tab" data-bs-toggle="tab" data-bs-target="#nav-recipes" type="button" role="tab" aria-controls="nav-recipes" aria-selected="false">My Recipes</button>
+        <button class="nav-link link-dark" id="nav-account-tab" data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="false">Account</button>
+        <button class="nav-link link-dark" id="nav-settings-tab" data-bs-toggle="tab" data-bs-target="#nav-settings" type="button" role="tab" aria-controls="nav-settings" aria-selected="false">Settings</button>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -27,44 +27,38 @@
         <div class="tab-title">
             My Favorite Recipes
         </div>
-        <table class="table table-striped table-hover mt-3">
+        <table class="table table-striped table-hover mt-3" style="width: 70vw;">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Prep Time</th>
-                <th scope="col"></th>
+                <th scope="col" style="width: 10%"></th>
+                <th scope="col" style="width: 25%">Recipe</th>
+                <th scope="col" style="width: 25%">Prep Time</th>
+                <th scope="col" style="width: 25%">View</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <th scope="row">1</th>
+                <th scope="row"></th>
                 <td>Tacos</td>
                 <td>30 Minutes</td>
                 <td>
-                    <a th:href="@{/recipe-view}">
-                        View
-                    </a>
+                    <button type="button" class="btn btn-light btn-outline-dark view-button" th:onclick="location.href='/recipe-view'">View</button>
                 </td>
             </tr>
             <tr>
-                <th scope="row">2</th>
+                <th scope="row"></th>
                 <td>Mac N' Cheese</td>
                 <td>20 Minutes</td>
                 <td>
-                    <a th:href="@{/recipe-view}">
-                        View
-                    </a>
+                    <button type="button" class="btn btn-light btn-outline-dark view-button" th:onclick="location.href='/recipe-view'">View</button>
                 </td>
             </tr>
             <tr>
-                <th scope="row">3</th>
+                <th scope="row"></th>
                 <td>Apple Pie</td>
                 <td>60 Minutes</td>
                 <td>
-                    <a th:href="@{/recipe-view}">
-                        View
-                    </a>
+                    <button type="button" class="btn btn-light btn-outline-dark view-button" th:onclick="location.href='/recipe-view'">View</button>
                 </td>
             </tr>
             </tbody>
@@ -77,41 +71,35 @@
         <table class="table table-striped table-hover mt-3">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Prep Time</th>
                 <th scope="col"></th>
+                <th scope="col">Recipe</th>
+                <th scope="col">Prep Time</th>
+                <th scope="col">Detailed View</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <th scope="row">1</th>
+                <th scope="row"></th>
                 <td>Tacos</td>
                 <td>30 Minutes</td>
                 <td>
-                    <a th:href="@{/recipe-view}">
-                        View
-                    </a>
+                    <button type="button" class="btn btn-light btn-outline-dark view-button" th:onclick="location.href='/recipe-view'">View</button>
                 </td>
             </tr>
             <tr>
-                <th scope="row">2</th>
+                <th scope="row"></th>
                 <td>Mac N' Cheese</td>
                 <td>20 Minutes</td>
                 <td>
-                    <a th:href="@{/recipe-view}">
-                        View
-                    </a>
+                    <button type="button" class="btn btn-light btn-outline-dark view-button" th:onclick="location.href='/recipe-view'">View</button>
                 </td>
             </tr>
             <tr>
-                <th scope="row">3</th>
+                <th scope="row"></th>
                 <td>Apple Pie</td>
                 <td>60 Minutes</td>
                 <td>
-                    <a th:href="@{/recipe-view}">
-                        View
-                    </a>
+                    <button type="button" class="btn btn-light btn-outline-dark view-button" th:onclick="location.href='/recipe-view'">View</button>
                 </td>
             </tr>
             </tbody>

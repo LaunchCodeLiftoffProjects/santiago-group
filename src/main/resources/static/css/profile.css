@@ -18,3 +18,9 @@
     margin-bottom: 35px;
     margin-left: 35px;
 }
+
+.view-button {
+    width: 60px;
+    height: 27px;
+    line-height: 17px;
+}
