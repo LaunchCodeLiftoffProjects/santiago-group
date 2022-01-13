@@ -22,9 +22,20 @@ public class Recipe {
 
     @OneToMany
     @JoinColumn(name = "recipeId")
-    private List <RecipeStep> recipeSteps;
+    private List <RecipeStep> recipeSteps = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "ingredientId")
+    private List <Ingredient> ingredientList = new ArrayList<>();
 
     public Recipe() {
+    }
+
+    public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
+        this.name = name;
+        this.description = description;
+        this.recipeSteps = recipeSteps;
+        this.ingredientList = ingredientList;
     }
 
     public int getRecipeId() {
@@ -47,6 +58,21 @@ public class Recipe {
         this.description = description;
     }
 
+    public List<RecipeStep> getRecipeSteps() {
+        return recipeSteps;
+    }
+
+    public void setRecipeSteps(List<RecipeStep> recipeSteps) {
+        this.recipeSteps = recipeSteps;
+    }
+
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
+
+    public void setIngredientList(List<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
+    }
 
     @Override
     public int hashCode() {
