@@ -30,7 +30,7 @@ public class AddRecipe {
     private MeasurementRepository measurementRepository;
 
     //This is totally untested other than ensuring it doesn't break the whole program
-    @PostMapping("add")
+    @GetMapping("add")
     public String processRecipeForm(@ModelAttribute @Valid Recipe newRecipe,
                                     Errors errors, Model model) {
 
@@ -56,4 +56,6 @@ public class AddRecipe {
         }
         return "index";
     }
+
+
 }
