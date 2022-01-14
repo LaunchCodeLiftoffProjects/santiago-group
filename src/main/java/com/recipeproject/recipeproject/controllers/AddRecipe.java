@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class AddRecipe {
-
+    List<Ingredient> ingredientList = new ArrayList<>();
     @Autowired
     private RecipeRepository recipeRepository;
     @Autowired
@@ -35,12 +35,12 @@ public class AddRecipe {
                                     Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            return "index";
+            return "dbTest";
         }
         recipeRepository.save(newRecipe);
 
-        List<Ingredient> tempList = newRecipe.getIngredientList();
-        for (Ingredient ingredient: tempList) {
+
+        for (Ingredient ingredient: ingredientList) {
             Junction newRow = new Junction(newRecipe, ingredient, ingredient.getMeasurement(), ingredient.getAmount(), ingredient.getPrepNotes());
             junctionRepository.save(newRow);
             Measurement newMeas = new Measurement(ingredient.getMeasurement().getMeasurement());
@@ -54,8 +54,20 @@ public class AddRecipe {
         for(RecipeStep recipeStep: steps){
             recipeStepRepository.save(recipeStep);
         }
-        return "index";
+        return "dbTest";
     }
+    //Need to add a controller to do same for Recipe Steps and one for the first part of the form with Recipe name & description
+
+    @PostMapping("addIngredient")
+    private String makeIngredientList(Model model, @RequestParam String ingredientName, @RequestParam String ingredientMeasure, @RequestParam String ingredientQuan, @RequestParam String ingredientNote){
+        Measurement tempMeas = new Measurement(ingredientMeasure);
+
+        Ingredient tempIngredient = new Ingredient(ingredientName, tempMeas, ingredientNote, ingredientQuan);
+        ingredientList.add(tempIngredient);
+        return "dbTest";
+
+    }
+
 
 
 }
