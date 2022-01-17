@@ -13,19 +13,29 @@
 
 <body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top background-color: #E98973">
-    <div class="container">
-        <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">Recipes</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a th:href="@{/add}">Sign Up</a></li>
-                <li><a th:href="@{/login}">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+<div th:fragment="page-header">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+        <div class="container-fluid" style="margin-left: 2px;">
+            <div class="navbar-brand">Recipe Group Project</div>
+            <div id="navbarNav">
+                <ul class="nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add}">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/profile}">
+                            <img class="profile-img" src="https://img.icons8.com/external-becris-flat-becris/64/000000/external-user-avatars-becris-flat-becris.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
 </body>
 </html>
