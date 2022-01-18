@@ -2,22 +2,27 @@ package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 public class RecipeStep {
 
     @Id
-    private int stepNumber;
+    @GeneratedValue
+    private int stepId;
+
+    @NotNull
+    private Integer stepNumber;
 
     @NotNull
     private String stepDescription;
 
-    //Set up recipeID as foreign key?
+
+    private Integer recipeId;
 
 
+    public RecipeStep() {
+    }
 
     public int getStepNumber() {
         return stepNumber;
@@ -34,4 +39,10 @@ public class RecipeStep {
     public void setStepDescription(String stepDescription) {
         this.stepDescription = stepDescription;
     }
-}
+
+    public int getStepId() {
+        return stepId;
+    }
+
+    }
+

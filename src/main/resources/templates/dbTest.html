@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id = "recBasic" action="#" th:action="@{/addRec}" th:object="${addRec}" method="post">
+    <p>Recipe Name: <input type="text" th:field="*{recName}" /></p>
+
+
+   <p>Recipe Description: <textarea id="recDesc" name="recDesc" rows="4" cols="50"></p>
+  Crispy skinned chicken roasted to perfection, never dry!
+  </textarea>
+
+</form>
+<form id = "ingredientRow" action="#" th:action="@{/addIngredient}" th:object="${ingredient}" method="post">
+    <input type="text" th:field="*{ingredientQuan}" id = "ingredientQuan"/>
+    <input type="text" th:field="*{ingredientMeas}" id = "ingredientMeas"/>
+    <input type="text" th:field="*{ingredientName}" id = "ingredientName"/>
+    <input type="text" th:field="*{ingredientNote}" id = "ingredientNote"/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

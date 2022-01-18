@@ -2,9 +2,8 @@ package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +11,7 @@ import java.util.Objects;
 public class Recipe {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer recipeId;
 
     @NotNull
     private String name;
@@ -20,8 +19,27 @@ public class Recipe {
     //@NotNull
     private String description;
 
-    public int getId() {
-        return id;
+
+    @OneToMany
+    @JoinColumn(name = "recipeId")
+    private List <RecipeStep> recipeSteps = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "ingredientId")
+    private List <Ingredient> ingredientList = new ArrayList<>();
+
+    public Recipe() {
+    }
+
+    public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
+        this.name = name;
+        this.description = description;
+        this.recipeSteps = recipeSteps;
+        this.ingredientList = ingredientList;
+    }
+
+    public int getRecipeId() {
+        return recipeId;
     }
 
     public String getName() {
@@ -40,17 +58,25 @@ public class Recipe {
         this.description = description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Recipe recipe = (Recipe) o;
-        return getId() == recipe.getId() && Objects.equals(getName(), recipe.getName());
+    public List<RecipeStep> getRecipeSteps() {
+        return recipeSteps;
+    }
+
+    public void setRecipeSteps(List<RecipeStep> recipeSteps) {
+        this.recipeSteps = recipeSteps;
+    }
+
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
+
+    public void setIngredientList(List<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName());
+        return Objects.hash(getRecipeId(), getName());
     }
 
     /**

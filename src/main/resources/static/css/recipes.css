@@ -60,3 +60,7 @@ div.recipe {
     width: 80%;
     background-color: #e4e4e4;
 }
+
+.profile-img {
+    max-height: 26px;
+}
