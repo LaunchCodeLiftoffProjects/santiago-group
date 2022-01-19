@@ -4,11 +4,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<head>New Recipe Form</head>
 
-<head>Add New Recipes Here</head>
 <body class="container body-content">
 
-<div class="form-popup" id="myForm">
+    <div class="form-popup" id="myForm">
     <form action="/action_page.php" class="form-container">
         <h1>Add Recipe</h1>
 
@@ -17,25 +17,48 @@
         <br>
         <br>
 
+        <label for="description"><b>Description</b></label>
+        <input type="text" placeholder="Describe Your Dish" name="description" required>
+        <br>
+        <br>
+
         <label for="ingredients"><b>Ingredients</b></label>
-        <input type="text" placeholder="Enter Ingredients" name="ingredients" required>
+        <table>
+
+            <tr>
+                <input type="text" placeholder="Number (2)" name="number" required>
+                <input type="text" placeholder="Measurement (sticks)" name="measurement" required>
+                <input type="text" placeholder="Food (butter)" name="food" required>
+                <input type="text" placeholder="Prep (softened)" name="prepNotes" required>
+            </tr>
+
+        </table>
         <br>
         <br>
 
         <label for="directions"><b>Directions</b></label>
-        <menu>
-        <input type="ordered list" placeholder="Enter Directions" name="directions" required>
-        </menu>
-
-
-<div>
+        <input type="text" placeholder="Enter Directions" name="directions" required>
+    </div>
+    <div>
 
     <button type="submit"
             class="btn">Add Recipe</button>
     <button type="button" class="btn cancel"
-            onclick="closeForm()">Close</button>
-</div>
+            onclick="closeForm()">Exit</button>
 
-    </form>
+
+    </div>
+    <form>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <title></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<button onclick ='' style="cursor: pointer;">Add Recipe</button>-->
+<!--</body>-->
+<!--</html>-->
