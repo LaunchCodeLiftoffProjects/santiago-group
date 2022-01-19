@@ -28,7 +28,7 @@ public class FormController {
     }
 
     @PostMapping("/form")
-    public String recipeSubmit(@ModelAttribute Recipe, Model model) {
+    public String recipeSubmit(Model model, @ModelAttribute String Recipe) {
         model.addAttribute("recipe", Recipe);
         return "result";
     }
