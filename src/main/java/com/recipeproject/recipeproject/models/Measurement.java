@@ -14,13 +14,15 @@ public class Measurement {
     private Integer measurementId;
 
     @NotNull
-
-
     private String measurement;
 
 
 
     public Measurement() {
+    }
+
+    public Measurement(String measurement) {
+        this.measurement = measurement;
     }
 
     public int getMeasurementId() {

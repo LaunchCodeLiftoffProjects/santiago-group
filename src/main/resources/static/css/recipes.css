@@ -62,8 +62,5 @@ div.recipe {
 }
 
 .profile-img {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    max-height: 50px;
-    padding-left: 20px;
+    max-height: 26px;
 }

@@ -14,16 +14,34 @@ public class Ingredient {
 
     @Id
     @GeneratedValue
-
     private Integer ingredientId;
+
     @NotNull
     private String name;
 
+    @Transient
+    private Measurement measurement;
+
+    @Transient
+    private String prepNotes;
+
+    @Transient
+    private String amount;
 
 
     public Ingredient() {
     }
 
+    public Ingredient(String name) {
+        this.name = name;
+    }
+
+    public Ingredient(String name, Measurement measurement, String prepNotes, String amount) {
+        this.name = name;
+        this.measurement = measurement;
+        this.prepNotes = prepNotes;
+        this.amount = amount;
+    }
 
     public int getIngredientId() {
         return ingredientId;
@@ -35,5 +53,29 @@ public class Ingredient {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Measurement getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Measurement measurement) {
+        this.measurement = measurement;
+    }
+
+    public String getPrepNotes() {
+        return prepNotes;
+    }
+
+    public void setPrepNotes(String prepNotes) {
+        this.prepNotes = prepNotes;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }
