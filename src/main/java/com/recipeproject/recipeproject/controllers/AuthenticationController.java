@@ -44,13 +44,13 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-    @GetMapping("/add")
+    @GetMapping("/register")
     public String displayRegistrationForm (Model model) {
         model.addAttribute(new RegisterFormDTO());
         return "register";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request, Model model) {
 
