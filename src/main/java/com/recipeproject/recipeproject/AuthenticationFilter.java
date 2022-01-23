@@ -21,7 +21,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/login", "/add", "");
+    private static final List<String> whitelist = Arrays.asList("/login", "/add", "", "/recipe-view");
 
     @Override
     public boolean preHandle(HttpServletRequest request,
