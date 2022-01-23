@@ -21,7 +21,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/login", "/add", "", "/recipe-view");
+    private static final List<String> whitelist = Arrays.asList("/login", "/register", "/css", "/recipe-view", "/home", "/search");
 
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -31,6 +31,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         // Don't require sign-in for whitelisted pages
         if (isWhitelisted(request.getRequestURI())) {
             // returning true indicates that the request may proceed
+
             return true;
         }
 
@@ -43,7 +44,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         }
 
         // The user is NOT logged in
-        response.sendRedirect("/login");
+        response.sendRedirect("/home");
         return false;
     }
 
