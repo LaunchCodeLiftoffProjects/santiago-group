@@ -17,7 +17,7 @@
 
     <form method="post">
         <div class="form-group">
-            <label class="my-3">Username
+            <label th:for="username" class="my-3">Username
                 <input class="form-control" th:field="${loginFormDTO.username}" />
             </label>
             <p class="error" th:errors="${loginFormDTO.username}"></p>
