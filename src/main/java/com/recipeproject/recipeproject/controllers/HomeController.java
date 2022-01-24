@@ -18,7 +18,7 @@ public class HomeController {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    @RequestMapping("")
+    @RequestMapping("home")
     public String index(Model model) {
 
         return "index";
