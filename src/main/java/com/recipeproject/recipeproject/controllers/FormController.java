@@ -16,9 +16,11 @@ public class FormController {
     private Object Recipe;
 
     @RequestMapping("form")
-    public String form(Model model) {
-
-        return "form";
+    public String recipeForm() {
+        return "<html>" +
+                "<body>" +
+                "<form>" +
+                "<input";
     }
 
     @GetMapping("/form")
@@ -30,7 +32,7 @@ public class FormController {
     @PostMapping("/form")
     public String recipeSubmit(Model model, @ModelAttribute String Recipe) {
         model.addAttribute("recipe", Recipe);
-        return "result";
+        return "form";
     }
 
 }
