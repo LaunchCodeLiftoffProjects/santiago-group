@@ -106,7 +106,34 @@
         </table>
     </div>
     <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
+        <div class="container text-center border py-4 my-5" style="background-color: #e3f2fd;">
 
+            <div class="tab-title">
+                Account Information
+            </div>
+
+            <form method="post">
+                <div class="form-group">
+                    <label class="my-3">Username
+                        <input class="form-control" th:field="${registerFormDTO.username}" />
+                    </label>
+                    <p class="error" th:errors="${registerFormDTO.username}"></p>
+                </div>
+                <div class="form-group">
+                    <label class="my-3">Password
+                        <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
+                    </label>
+                    <p class="error" th:errors="${registerFormDTO.password}"></p>
+                </div>
+                <div class="form-group">
+                    <label class="my-3">Verify Password
+                        <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+                    </label>
+                </div>
+
+                <input type="submit" class="btn btn-outline-dark btn-light my-3" value="Register" />
+            </form>
+        </div>
     </div>
     <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
 
