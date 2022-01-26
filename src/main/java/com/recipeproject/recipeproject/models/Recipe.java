@@ -31,6 +31,11 @@ public class Recipe {
     public Recipe() {
     }
 
+    public Recipe(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
         this.name = name;
         this.description = description;
@@ -38,7 +43,7 @@ public class Recipe {
         this.ingredientList = ingredientList;
     }
 
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 

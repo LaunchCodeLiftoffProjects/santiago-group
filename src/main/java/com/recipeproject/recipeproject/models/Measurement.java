@@ -25,7 +25,7 @@ public class Measurement {
         this.measurement = measurement;
     }
 
-    public int getMeasurementId() {
+    public Integer getMeasurementId() {
         return measurementId;
     }
 
