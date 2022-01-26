@@ -46,6 +46,7 @@ public class AuthenticationController {
     @GetMapping("/register")
     public String displayRegistrationForm (Model model) {
         model.addAttribute(new RegisterFormDTO());
+        model.addAttribute("title", "Register");
         return "register";
     }
 
