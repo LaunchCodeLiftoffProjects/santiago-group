@@ -1,14 +1,10 @@
 package com.recipeproject.recipeproject.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.recipeproject.recipeproject.models.data.Instructions;
 
-import javax.persistence.Entity;
-import java.util.ArrayList;
 import java.util.List;
-
+//This class exists to store the JSON data temporarily
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DataParser {
     private String name;
@@ -19,7 +15,7 @@ public class DataParser {
     private String description;
 
     private List<String> ingredients;
-
+    //this is set up weird because the json data is nested stupidly
     private List<Instructions> instructions;
 
     public String getName() {

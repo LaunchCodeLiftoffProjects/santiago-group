@@ -1,4 +1,4 @@
-package com.recipeproject.recipeproject.models.data;
+package com.recipeproject.recipeproject.models;
 
 import java.util.List;
 

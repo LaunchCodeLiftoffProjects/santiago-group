@@ -38,6 +38,7 @@ public class addRecipeApi {
                 .method("POST", HttpRequest.BodyPublishers.ofString(url))
                 .build();
         String response;
+        //The json is stored as a DataParser object on this next line, it still needs to have the data put into the DB but pulling it out should be easy
         DataParser dataParser = new DataParser();
         try {
             HttpResponse<String> apiResponse = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
