@@ -24,3 +24,14 @@
     height: 27px;
     line-height: 17px;
 }
+
+.account-title {
+ font-weight: 500;
+    font-size: 1.5rem;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.my-label {
+   margin-right: 0px;
+}

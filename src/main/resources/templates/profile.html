@@ -108,30 +108,42 @@
     <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
         <div class="container text-center border py-4 my-5" style="background-color: #e3f2fd;">
 
-            <div class="tab-title">
+            <div class="account-title">
                 Account Information
+            </div>
+
+            <div class="form-group">
+                <label class="my-3 my-label">Display Username
+                    <input class="form-control" th:value="${myUsername}" readonly/>
+                </label>
             </div>
 
             <form method="post">
                 <div class="form-group">
-                    <label class="my-3">Username
-                        <input class="form-control" th:field="${registerFormDTO.username}" />
+                    <label class="my-3 my-label">New Username
+                        <input class="form-control" name="usernameInput"/>
                     </label>
-                    <p class="error" th:errors="${registerFormDTO.username}"></p>
+                </div>
+                <input type="submit" class="btn btn-outline-dark btn-light my-3" value="Change Username" />
+            </form>
+            <form>
+                <div class="form-group">
+                    <label class="my-3 my-label">Old Password
+                        <input class="form-control"/>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label class="my-3">Password
-                        <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
+                    <label class="my-3 my-label">New Password
+                        <input class="form-control"/>
                     </label>
-                    <p class="error" th:errors="${registerFormDTO.password}"></p>
                 </div>
                 <div class="form-group">
-                    <label class="my-3">Verify Password
-                        <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+                    <label class="my-3 my-label">Verify New Password
+                        <input class="form-control"/>
                     </label>
                 </div>
 
-                <input type="submit" class="btn btn-outline-dark btn-light my-3" value="Register" />
+                <input type="submit" class="btn btn-outline-dark btn-light my-3" value="Change Password" />
             </form>
         </div>
     </div>
