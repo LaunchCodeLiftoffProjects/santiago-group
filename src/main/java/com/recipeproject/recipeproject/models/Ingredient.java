@@ -36,6 +36,13 @@ public class Ingredient {
         this.name = name;
     }
 
+    public Ingredient(String name, Measurement measurement, String prepNotes, String amount) {
+        this.name = name;
+        this.measurement = measurement;
+        this.prepNotes = prepNotes;
+        this.amount = amount;
+    }
+
     public int getIngredientId() {
         return ingredientId;
     }

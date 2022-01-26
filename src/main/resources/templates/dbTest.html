@@ -5,9 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+
 <form id = recipeFullForm action="addRecipe">
 <form id = "recBasic" action="#" th:action="@{/addRec}" th:object="${addRec}" method="post">
     <p>Recipe Name: <input type="text" name = "recName"/></p>
+
+
 
 
    <p>Recipe Description: <textarea id="recDesc" name="recDesc" rows="4" cols="50"></p>
@@ -16,6 +19,7 @@
 
 </form>
 <form id = "ingredientRow" action="#" th:action="@{/addIngredient}" th:object="${ingredient}" method="post">
+
     <input type="text"  name = "ingredientQuan" id = "ingredientQuan"/>
     <input type="text"  name = "ingredientMeas" id = "ingredientMeas"/>
     <input type="text"  name = "ingredientName" id = "ingredientName"/>
@@ -33,5 +37,6 @@
 //popup message to confirm recipe before final submit
 <input type="submit" value="All Done!">
     </form>
+
 </body>
 </html>
