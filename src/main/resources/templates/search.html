@@ -4,6 +4,7 @@
 </head>
 <body>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/recipeCard.css}" rel="stylesheet" />
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
@@ -21,18 +22,12 @@
 
     <!-- filters -->
 
-    <div class="container body-content subtitle">
+    <div class="container body-content subtitle" style="padding-bottom:12px">
         <span th:text="${numberOfRecipesReturned}"></span><span > suggested recipe</span><span th:if="${numberOfRecipesReturned > 1 || numberOfRecipesReturned == 0}">s</span>
-        <b/>
     </div>
 
-    <th:block th:each="recipe : ${recipes}">
-        <div class="recipe-listing">
-            <p>
-                <a th:href="@{'/view/' + ${recipe.recipeId}}" th:text="${recipe.name}"></a>
-            </p>
-        </div>
-    </th:block>
+    <div th:replace="fragments :: recipe-cards"></div>
+
 </div>
 
 <footer>

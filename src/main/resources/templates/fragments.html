@@ -44,29 +44,24 @@
     </nav>
 </div>
 
-<div th:fragment="recipe-card">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-tag">Category</p>
-                    <h5 class="card-title">Recipe Title</h5>
-                    <p class="card-text" style="margin-left:0">Recipe Description</p>
-                    <a href="#" class="btn btn-secondary">View Recipe</a>
+<div th:fragment="recipe-cards">
+
+    <th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(recipes, 2)}">
+        <div class="row" th:each="partition: ${partitions}">
+            <div class="col-sm-6" th:each="recipe: ${partition}">
+                <div class="card">
+                    <div class="card-contents">
+                        <!-- Once category field is added to class, make this a conditional to display appropriate category tag -->
+                        <p class="card-tag-dinner">Snacks & Appetizers</p>
+                        <h5 class="card-title" th:text="${recipe.name}"></h5>
+                        <p class="card-text" th:text="${recipe.description}" style="margin-left:0"></p>
+                        <a th:href="@{'/view/' + ${recipe.recipeId}}" class="btn btn-secondary">View Recipe</a>
+                    </div>
                 </div>
+                <br>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-tag">Category</p>
-                    <h5 class="card-title">Recipe Title</h5>
-                    <p class="card-text" style="margin-left:0">Recipe Description</p>
-                    <a href="#" class="btn btn-secondary">View Recipe</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </th:block>
 
 </div>
 
