@@ -4,6 +4,7 @@
 </head>
 <body>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/recipeCard.css}" rel="stylesheet" />
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
@@ -22,6 +23,8 @@
     <!-- filters -->
 
     <!-- featured recipes -->
+    <div th:replace="fragments :: recipe-card">
+
 </div>
 
 <footer>
