@@ -13,11 +13,11 @@ public class Form {
     }
 }
 
-//Form class is used to write the form's behavior into an object.
-//Form controller is used to handle users' request and returns a response.  The flow of information.
-//Form repository is used to
-
-
+// Do the following in order:
+// Exit button will be with info used to do form pop up (login screen in W3 schools).
+// Check out form handler in W3 schools for info on submitting form data.
+// Add row with Enter key requires more reading from Kevin resources and own research.
+// Start getting form css design set up.
 
 
 //  JS, Jquery, html, dom
@@ -48,3 +48,43 @@ public class Form {
 //        cell2.innerHTML = "NEW CELL2";
 //
 //    }
+
+
+
+//<html>
+//<script>
+//        function addRow() {
+//                var table = document.getElementById('myTable');
+//                //var row = document.getElementById("myTable");
+//                var x = table.insertRow(0);
+//                var e = table.rows.length-1;
+//                var l = table.rows[e].cells.length;
+//                //x.innerHTML = "&nbsp;";
+//
+//                for (var c=0, m=l; c < m; c++) {
+//        table.rows[0].insertCell(c);
+//        table.rows[0].cells[c].innerHTML = "&nbsp;&nbsp;";
+//        }
+//        }
+//</script>
+//
+//<body>
+//<input type="button" value="row +" onClick="addRow()" border=0 style='cursor:hand'>
+//<input type="button" value="row -" onClick='deleteRow()' border=0 style='cursor:hand'>
+//<input type="button" value="column +" onClick="addColumn()" border=0 style='cursor:hand'>
+//<input type="button" value="column -" onClick='deleteColumn()' border=0 style='cursor:hand'>
+//
+//<table  id='myTable' border=1 cellpadding=0 cellspacing=0>
+//<tr id='myRow'>
+//<td>&nbsp;</td>
+//<td>&nbsp;</td>
+//<td>&nbsp;</td>
+//</tr>
+//<tr>
+//<td>&nbsp;</td>
+//<td>&nbsp;</td>
+//<td>&nbsp;</td>
+//</tr>
+//</table>
+//</body>
+//</html>

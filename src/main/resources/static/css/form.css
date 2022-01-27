@@ -5,11 +5,3 @@ div.settings {
 }
 div.settings label       { text-align:right; }
 div.settings label:after { content: ":"; }
-
-body {
-  background-image: url("images/projectbackgroundchalk.jpg");
-  background-size: cover;
-  background-position: center;
-  height:100vh;
-
-}
