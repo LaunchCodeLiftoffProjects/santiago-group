@@ -41,14 +41,6 @@ public class ProfileController {
     @PostMapping("change-username")
     public String changeUsername(Model model, HttpServletRequest request, @RequestParam String usernameInput) {
 
-        //user value given
-//        User existingUser = userRepository.findByUsername("Hello");
-//
-//        if (existingUser != null) {
-////            errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-//            return "profile";
-//        }
-
         HttpSession session = (request.getSession());
         Object userId = session.getAttribute("user");
         User user = userRepository.findById((Integer)userId).get();
@@ -62,15 +54,12 @@ public class ProfileController {
 
     //profile
     @PostMapping("change-password")
-    public String changePassword(Model model, HttpServletRequest request, @RequestParam String oldPasswordInput,
-                                 @RequestParam String newPasswordInput, @RequestParam String newPasswordVerify) {
+    public String changePassword(Model model, HttpServletRequest request, @RequestParam String newPasswordInput) {
 
         HttpSession session = (request.getSession());
         Object userId = session.getAttribute("user");
         User user = userRepository.findById((Integer)userId).get();
-//        if (oldPasswordInput != user.getPwHash()) {
-//
-//        }
+
         user.setPwHash(newPasswordInput);
         userRepository.save(user);
         setUserInSession(session, user);
