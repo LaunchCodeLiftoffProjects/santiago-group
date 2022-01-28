@@ -31,9 +31,8 @@ public class HomeController {
         //Pick the first 3 in the shuffled list to be featured (but only add if they exist)
         if (allRecipes.size() > 0) { featuredRecipes.add(allRecipes.get(0)); }
         if (allRecipes.size() > 1) { featuredRecipes.add(allRecipes.get(1)); }
-        if (allRecipes.size() > 2) { featuredRecipes.add(allRecipes.get(2)); }
 
-        model.addAttribute("featuredRecipes", featuredRecipes);
+        model.addAttribute("recipes", featuredRecipes);
         return "index";
     }
 

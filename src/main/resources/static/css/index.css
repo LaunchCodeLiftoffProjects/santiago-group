@@ -11,6 +11,12 @@ body {
     font-weight: 300
 }
 
+footer {
+  text-align: center;
+  width: 100%;
+  bottom: 0px;
+}
+
 .height {
     height: 100vh
 }
