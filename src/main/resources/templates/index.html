@@ -8,9 +8,6 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <div class="container title text-center">
-        <h2>Recipe Project</h2>
-    </div>
 
     <div th:replace="fragments :: search"></div>
 
@@ -19,20 +16,13 @@
     <!-- featured recipes -->
   
     <div class="container body-content subtitle">
-        <h4>Featured Recipes</h4>
+        <h5 style="text-align:center; font-weight:bold; padding-bottom:12px">Featured Recipes</h5>
     </div>
-    <th:block th:each="recipe : ${featuredRecipes}">
-        <div class="recipe-listing" th:if="${recipe}">
-            <p>
-                <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
-            </p>
-        </div>
-    </th:block></div>
+    <div th:replace="fragments :: recipe-cards"></div>
   </div>
 
 <footer>
-    <!-- line breaks to bring footer to bottom; take out when page is filled in with content -->
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <a href="https://icons8.com/icon/59878/search">Search icon by Icons8</a>
 </footer>
 

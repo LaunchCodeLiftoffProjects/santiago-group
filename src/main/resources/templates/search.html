@@ -8,17 +8,18 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <div class="container body-content title">
-        <h2>Search Results</h2>
-    </div>
 
     <div th:replace="fragments :: search"></div>
 
     <!-- filters -->
 
-    <div class="container body-content subtitle" style="padding-bottom:12px">
-        <span th:text="${numberOfRecipesReturned}"></span><span > suggested recipe</span><span th:if="${numberOfRecipesReturned > 1 || numberOfRecipesReturned == 0}">s</span>
+    <div class="container body-content subtitle">
+        <h5 style="text-align:center; font-weight:bold">Search Results</h5>
+        <div style="padding-bottom:12px; text-align:center">
+            <span th:text="${numberOfRecipesReturned}"></span><span > suggested recipe</span><span th:if="${numberOfRecipesReturned > 1 || numberOfRecipesReturned == 0}">s</span>
+        </div>
     </div>
+
 
     <div th:replace="fragments :: recipe-cards"></div>
 
@@ -26,8 +27,8 @@
 
 <footer>
     <!-- line breaks to bring footer to bottom; fix with css later -->
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <a href="https://icons8.com/icon/59878/search">Search icon by Icons8</a>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <a href="https://icons8.com/icon/59878/search" >Search icon by Icons8</a>
 </footer>
 
 </body>
