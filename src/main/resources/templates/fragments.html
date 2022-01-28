@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link th:href="@{/css/recipes.css}" rel="stylesheet" />
+    <link th:href="@{/css/recipeCard.css}" rel="stylesheet" />
 
     <title>Recipe Project</title>
 </head>
@@ -14,8 +15,8 @@
 <body>
 
 <div th:fragment="page-header">
+  
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-
         <div class="container-fluid" style="margin-left: 2px;">
             <div class="navbar-brand">Recipe Group Project</div>
             <div id="navbarNav">
@@ -41,14 +42,38 @@
             </div>
         </div>
     </nav>
+  
 </div>
 
+<div th:fragment="recipe-cards">
+
+    <th:block th:with="partitions=${T(org.apache.commons.collections4.ListUtils).partition(recipes, 2)}">
+        <div class="row" th:each="partition: ${partitions}">
+            <div class="col-sm-6" th:each="recipe: ${partition}">
+                <div class="card">
+                    <div class="card-contents">
+                        <!-- Once category field is added to class, make this a conditional to display appropriate category tag -->
+                        <p class="card-tag-dinner">Snacks & Appetizers</p>
+                        <h5 class="card-title" th:text="${recipe.name}"></h5>
+                        <p class="card-text" th:text="${recipe.description}" style="margin-left:0"></p>
+                        <a th:href="@{'/view/' + ${recipe.recipeId}}" class="btn btn-secondary">View Recipe</a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </th:block>
+  
+  </div>
+
 <div th:fragment="search" class="search">
+  
     <form th:action="@{/search}" method = "get">
         <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
         <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="What are you hungry for?">
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
+  
 </div>
 
 </body>

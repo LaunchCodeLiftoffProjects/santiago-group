@@ -4,6 +4,7 @@
 </head>
 <body>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/recipeCard.css}" rel="stylesheet" />
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
@@ -14,6 +15,9 @@
     <div th:replace="fragments :: search"></div>
 
     <!-- filters -->
+
+    <!-- featured recipes -->
+  
     <div class="container body-content subtitle">
         <h4>Featured Recipes</h4>
     </div>
@@ -24,6 +28,7 @@
             </p>
         </div>
     </th:block></div>
+  </div>
 
 <footer>
     <!-- line breaks to bring footer to bottom; take out when page is filled in with content -->
