@@ -118,7 +118,7 @@
                 </label>
             </div>
 
-            <form method="post">
+            <form method="post" action="profile/change-username">
                 <div class="form-group">
                     <label class="my-3 my-label">New Username
                         <input class="form-control" name="usernameInput"/>
@@ -126,20 +126,20 @@
                 </div>
                 <input type="submit" class="btn btn-outline-dark btn-light my-3" value="Change Username" />
             </form>
-            <form>
+            <form method="post" action="profile/change-password">
                 <div class="form-group">
                     <label class="my-3 my-label">Old Password
-                        <input class="form-control"/>
+                        <input class="form-control" name="oldPasswordInput"/>
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="my-3 my-label">New Password
-                        <input class="form-control"/>
+                        <input class="form-control" name="newPasswordInput"/>
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="my-3 my-label">Verify New Password
-                        <input class="form-control"/>
+                        <input class="form-control" name="newPasswordVerify"/>
                     </label>
                 </div>
 

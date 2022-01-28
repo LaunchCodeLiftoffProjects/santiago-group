@@ -32,14 +32,13 @@ public class ProfileController {
     public String index(Model model, HttpServletRequest request) {
         HttpSession session = (request.getSession());
         Object username = session.getAttribute("username");
-        System.out.println("hgfg" + username);
         model.addAttribute("myUsername", username);
 
         return "profile";
     }
 
     //profile/change-username
-    @PostMapping
+    @PostMapping("change-username")
     public String changeUsername(Model model, HttpServletRequest request, @RequestParam String usernameInput) {
 
         //user value given
@@ -56,6 +55,24 @@ public class ProfileController {
         user.setUsername(usernameInput);
         userRepository.save(user);
 
+        setUserInSession(session, user);
+
+        return "redirect:/profile";
+    }
+
+    //profile
+    @PostMapping("change-password")
+    public String changePassword(Model model, HttpServletRequest request, @RequestParam String oldPasswordInput,
+                                 @RequestParam String newPasswordInput, @RequestParam String newPasswordVerify) {
+
+        HttpSession session = (request.getSession());
+        Object userId = session.getAttribute("user");
+        User user = userRepository.findById((Integer)userId).get();
+//        if (oldPasswordInput != user.getPwHash()) {
+//
+//        }
+        user.setPwHash(newPasswordInput);
+        userRepository.save(user);
         setUserInSession(session, user);
 
         return "redirect:/profile";
