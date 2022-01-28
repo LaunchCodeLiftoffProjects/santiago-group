@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -20,7 +21,19 @@ public class HomeController {
 
     @RequestMapping("home")
     public String index(Model model) {
+        List<Recipe> allRecipes = new ArrayList<>();
+        List<Recipe> featuredRecipes = new ArrayList<>();
 
+        recipeRepository.findAll().forEach(allRecipes::add);
+        //Shuffle the list of recipes to randomize it so that we can pull out featured recipes
+        Collections.shuffle(allRecipes);
+
+        //Pick the first 3 in the shuffled list to be featured (but only add if they exist)
+        if (allRecipes.size() > 0) { featuredRecipes.add(allRecipes.get(0)); }
+        if (allRecipes.size() > 1) { featuredRecipes.add(allRecipes.get(1)); }
+        if (allRecipes.size() > 2) { featuredRecipes.add(allRecipes.get(2)); }
+
+        model.addAttribute("featuredRecipes", featuredRecipes);
         return "index";
     }
 

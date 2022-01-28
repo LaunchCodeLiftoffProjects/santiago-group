@@ -12,19 +12,23 @@
         <h2>Recipe Project</h2>
     </div>
 
-        <div class="search">
-            <form th:action="@{/search}" method = "get">
-                <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
-                <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="What are you hungry for?">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div>
+    <div th:replace="fragments :: search"></div>
 
     <!-- filters -->
 
     <!-- featured recipes -->
-
-</div>
+  
+    <div class="container body-content subtitle">
+        <h4>Featured Recipes</h4>
+    </div>
+    <th:block th:each="recipe : ${featuredRecipes}">
+        <div class="recipe-listing" th:if="${recipe}">
+            <p>
+                <a th:href="@{'/view/' + ${recipe.id}}" th:text="${recipe.name}"></a>
+            </p>
+        </div>
+    </th:block></div>
+  </div>
 
 <footer>
     <!-- line breaks to bring footer to bottom; take out when page is filled in with content -->

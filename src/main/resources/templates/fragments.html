@@ -15,8 +15,8 @@
 <body>
 
 <div th:fragment="page-header">
+  
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-
         <div class="container-fluid" style="margin-left: 2px;">
             <div class="navbar-brand">Recipe Group Project</div>
             <div id="navbarNav">
@@ -42,6 +42,7 @@
             </div>
         </div>
     </nav>
+  
 </div>
 
 <div th:fragment="recipe-cards">
@@ -62,7 +63,17 @@
             </div>
         </div>
     </th:block>
+  
+  </div>
 
+<div th:fragment="search" class="search">
+  
+    <form th:action="@{/search}" method = "get">
+        <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
+        <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="What are you hungry for?">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  
 </div>
 
 </body>
