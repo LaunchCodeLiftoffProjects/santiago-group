@@ -12,25 +12,25 @@
 
 
 <div class="container">
-    <div class="border p-5 my-5" style="background-color: #EDEED6;">
+    <div class="border p-5 my-5" style="box-shadow: 0 0 40px rgba(51, 51, 51, .1)">
         <div class="row">
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <img class="recipe-img" src="/images/beefTacos.jpeg">
-            </div>
+            </div> -->
             <div class="col-md">
-                <div class="fw-bold fs-2" th:text="${recipe.name}"></div>
-                <div class="recipe-description" th:text="${recipe.description}"></div>
-                <div class="recipe-description">Preparation Time: <span> 30 minutes</span></div>
-                <div class="recipe-description">Ingredients: </div>
+                <h1 th:text="${recipe.name}"></h1>
+                <p class="recipe-description" th:text="${recipe.description}"></p>
+                <p class="recipe-specs">Preparation Time: <span> 30 minutes</span></p>
+                <h3>Ingredients: </h3>
                 <div class="row">
                     <div class="col">
-                        <ul class="recipe-description">
+                        <ul>
                             <div class="col-sm-6" th:each="item : ${recipeIngredients}">
                                 <li>
-                                    <span th:if="${item.amount}" th:text="${item.amount}"></span>
+                                    <p><span th:if="${item.amount}" th:text="${item.amount}"></span>
                                     <span th:if="${item.measurement}" th:text="${item.measurement.measurement}"></span>
                                     <span th:text="${item.ingredient.name}"></span>
-                                    <span class="prep-notes" th:if="${item.prepNotes}" th:text="${item.prepNotes}"></span>
+                                    <span class="prep-notes" th:if="${item.prepNotes}" th:text="${item.prepNotes}"></span></p>
                                 </li>
                             </div>
                         </ul>
@@ -38,12 +38,10 @@
                 </div>
             </div>
         </div>
-        <div class="recipe-text fw-bold fs-3">
-            Directions:
-        </div>
+        <h3>Directions:</h3>
         <th:block th:each="step : ${recipe.recipeSteps}" class="recipe-text">
-            Step <span th:text="${step.stepNumber}"></span>:
-            <span th:text="${step.stepDescription}"></span>
+            <p style="font-weight:500">Step <span th:text="${step.stepNumber}"></span>:</p>
+            <p><span th:text="${step.stepDescription}"></span></p>
             <br/>
         </th:block>
     </div>
