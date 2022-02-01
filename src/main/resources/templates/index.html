@@ -14,15 +14,16 @@
     <!-- filters -->
 
     <!-- featured recipes -->
-  
-    <div class="container body-content subtitle">
-        <h5 style="text-align:center; font-weight:bold; padding-bottom:12px">Featured Recipes</h5>
+
+    <div th:if="${!(recipes.isEmpty())}">
+        <div class="container body-content subtitle">
+            <h5 style="text-align:center; font-weight:bold; padding-bottom:12px">Featured Recipes</h5>
+        </div>
+        <div th:replace="fragments :: recipe-cards"></div>
     </div>
-    <div th:replace="fragments :: recipe-cards"></div>
-  </div>
 
 <footer>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <a href="https://icons8.com/icon/59878/search">Search icon by Icons8</a>
 </footer>
 
