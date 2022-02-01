@@ -14,8 +14,6 @@ public class Measurement {
     private Integer measurementId;
 
     @NotNull
-
-
     private String measurement;
 
 
@@ -23,7 +21,11 @@ public class Measurement {
     public Measurement() {
     }
 
-    public int getMeasurementId() {
+    public Measurement(String measurement) {
+        this.measurement = measurement;
+    }
+
+    public Integer getMeasurementId() {
         return measurementId;
     }
 

@@ -21,7 +21,11 @@ public class Recipe {
 
     @OneToMany
     @JoinColumn(name = "recipeId")
-    private List <RecipeStep> recipeSteps;
+    private List <RecipeStep> recipeSteps = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "ingredientId")
+    private List <Ingredient> ingredientList = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "recipeId")
@@ -30,7 +34,19 @@ public class Recipe {
     public Recipe() {
     }
 
-    public int getRecipeId() {
+    public Recipe(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
+        this.name = name;
+        this.description = description;
+        this.recipeSteps = recipeSteps;
+        this.ingredientList = ingredientList;
+    }
+
+    public Integer getRecipeId() {
         return recipeId;
     }
 
@@ -64,6 +80,14 @@ public class Recipe {
 
     public void setIngredientJunctions(List<Junction> ingredientJunctions) {
         this.ingredientJunctions = ingredientJunctions;
+
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
+
+    public void setIngredientList(List<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
+
     }
 
     @Override

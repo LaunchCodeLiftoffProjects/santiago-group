@@ -24,10 +24,19 @@ public class Junction {
 
     private String prepNotes;
 
+    public Junction(Recipe recipe, Ingredient ingredient, Measurement measurement, String amount, String prepNotes) {
+        this.recipe = recipe;
+        this.ingredient = ingredient;
+        this.measurement = measurement;
+        this.amount = amount;
+        this.prepNotes = prepNotes;
+    }
     public Junction() {
     }
 
-    public int getJunctionID() {
+
+
+    public Integer getJunctionID() {
         return junctionID;
     }
 

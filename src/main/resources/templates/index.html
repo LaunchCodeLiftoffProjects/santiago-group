@@ -4,29 +4,26 @@
 </head>
 <body>
 <link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/recipeCard.css}" rel="stylesheet" />
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <div class="container title text-center">
-        <h2>Recipe Project</h2>
-    </div>
 
-        <div class="search">
-            <form th:action="@{/search}" method = "get">
-                <img class="fa fa-search" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png"/>
-                <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="What are you hungry for?">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-        </div>
+    <div th:replace="fragments :: search"></div>
 
     <!-- filters -->
 
     <!-- featured recipes -->
-</div>
+
+    <div th:if="${!(recipes.isEmpty())}">
+        <div class="container body-content subtitle">
+            <h5 style="text-align:center; font-weight:bold; padding-bottom:12px">Featured Recipes</h5>
+        </div>
+        <div th:replace="fragments :: recipe-cards"></div>
+    </div>
 
 <footer>
-    <!-- line breaks to bring footer to bottom; take out when page is filled in with content -->
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <a href="https://icons8.com/icon/59878/search">Search icon by Icons8</a>
 </footer>
 

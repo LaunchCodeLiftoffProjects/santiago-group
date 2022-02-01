@@ -1,34 +1,28 @@
 package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-
-    @Id
-    private String email;
+public class User extends AbstractEntity {
 
     @NotNull
     private String username;
 
     @NotNull
-    private String password;
-    //obviously change this once we start getting proper login stuff
+    private String pwHash;
 
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public User() {
-    }
+    public User() {}
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public User(String username, String password) {
+        this.username = username;
+        this.pwHash = encoder.encode(password);
     }
 
     public String getUsername() {
@@ -39,11 +33,16 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPwHash() {
+        return pwHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPwHash(String pwHash) {
+        this.pwHash = encoder.encode(pwHash);
     }
+
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
+    }
+
 }
