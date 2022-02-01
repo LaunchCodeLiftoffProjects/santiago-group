@@ -80,6 +80,7 @@ public class Recipe {
 
     public void setIngredientJunctions(List<Junction> ingredientJunctions) {
         this.ingredientJunctions = ingredientJunctions;
+    }
 
     public List<Ingredient> getIngredientList() {
         return ingredientList;
@@ -87,7 +88,6 @@ public class Recipe {
 
     public void setIngredientList(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
-
     }
 
     @Override
