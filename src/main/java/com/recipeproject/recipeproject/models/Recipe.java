@@ -19,6 +19,8 @@ public class Recipe {
     //@NotNull
     private String description;
 
+    private String category;
+
     @OneToMany
     @JoinColumn(name = "recipeId")
     private List <RecipeStep> recipeSteps = new ArrayList<>();
@@ -88,6 +90,18 @@ public class Recipe {
 
     public void setIngredientList(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
+    }
+
+    public void setRecipeId(Integer recipeId) {
+        this.recipeId = recipeId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @Override
