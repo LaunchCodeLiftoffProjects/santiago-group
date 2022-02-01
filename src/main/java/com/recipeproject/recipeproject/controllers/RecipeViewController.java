@@ -23,7 +23,7 @@ public class RecipeViewController {
 
     @RequestMapping("")
     public String index() {
-        return "redirect:../";
+        return "redirect:/home";
     }
 
     @GetMapping("{recipeId}")
@@ -36,7 +36,7 @@ public class RecipeViewController {
             model.addAttribute("recipeIngredients", recipe.getIngredientJunctions());
             return "view";
         } else {
-            return "redirect:../";
+            return "redirect:/home";
         }
 
     }
