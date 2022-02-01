@@ -30,7 +30,6 @@ public class Measurement {
     }
 
 
-
     public String getMeasurement() {
         return measurement;
     }
@@ -38,4 +37,6 @@ public class Measurement {
     public void setMeasurement(String measurement) {
         this.measurement = measurement;
     }
+
+
 }
