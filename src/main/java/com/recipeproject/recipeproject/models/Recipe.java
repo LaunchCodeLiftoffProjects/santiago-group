@@ -19,6 +19,7 @@ public class Recipe {
     //@NotNull
     private String description;
 
+
     @OneToMany
     @JoinColumn(name = "recipeId")
     private List <RecipeStep> recipeSteps = new ArrayList<>();
@@ -30,6 +31,9 @@ public class Recipe {
     @OneToMany
     @JoinColumn(name = "recipeId")
     private List<Junction> ingredientJunctions;
+
+    @ManyToMany(mappedBy = "recipeFavorites")
+    private List <User> userFavoriteList = new ArrayList<>();
 
     public Recipe() {
     }

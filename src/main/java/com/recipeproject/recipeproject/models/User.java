@@ -3,9 +3,9 @@ package com.recipeproject.recipeproject.models;
 import com.sun.istack.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
@@ -15,6 +15,13 @@ public class User extends AbstractEntity {
 
     @NotNull
     private String pwHash;
+
+    @ManyToMany
+    @JoinTable(
+            name = "userFavorites",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "recipeId"))
+    private List<Recipe> recipeFavorites = new ArrayList<>();
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
