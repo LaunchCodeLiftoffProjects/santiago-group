@@ -36,7 +36,7 @@ public class Junction {
 
 
 
-    public int getJunctionID() {
+    public Integer getJunctionID() {
         return junctionID;
     }
 
