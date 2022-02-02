@@ -27,7 +27,6 @@ public class Recipe {
     private String yield;
 
 
-
     @OneToMany
     @JoinColumn(name = "recipeId")
     private List <RecipeStep> recipeSteps = new ArrayList<>();
@@ -35,6 +34,10 @@ public class Recipe {
     @OneToMany
     @JoinColumn(name = "ingredientId")
     private List <Ingredient> ingredientList = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "recipeId")
+    private List<Junction> ingredientJunctions;
 
     public Recipe() {
     }
@@ -87,6 +90,14 @@ public class Recipe {
 
     public void setRecipeSteps(List<RecipeStep> recipeSteps) {
         this.recipeSteps = recipeSteps;
+    }
+
+    public List<Junction> getIngredientJunctions() {
+        return ingredientJunctions;
+    }
+
+    public void setIngredientJunctions(List<Junction> ingredientJunctions) {
+        this.ingredientJunctions = ingredientJunctions;
     }
 
     public List<Ingredient> getIngredientList() {
