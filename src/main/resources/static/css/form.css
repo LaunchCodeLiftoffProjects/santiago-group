@@ -3,5 +3,5 @@ div.settings {
     grid-template-columns: max-content max-content;
     grid-gap:5px;
 }
-div.settings label       { text-align:right; }
+div.settings label       { text-align:center; }
 div.settings label:after { content: ":"; }
