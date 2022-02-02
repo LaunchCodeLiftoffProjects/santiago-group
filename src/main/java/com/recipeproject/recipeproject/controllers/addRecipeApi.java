@@ -8,10 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
@@ -26,7 +24,7 @@ public class addRecipeApi {
     private static String COOKBOOK_IO_URL = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi";
 
     @RequestMapping(value = "addurl", method = RequestMethod.POST)
-    public ResponseEntity<Object> getfromWeb(@RequestBody Map<String, String> body){
+    public ResponseEntity<Object> getfromWeb(@RequestBody Map<String, String> body, Model model){
         String url = body.get("url");
         RestTemplate restTemplate = new RestTemplate();
 
@@ -34,7 +32,6 @@ public class addRecipeApi {
                 .uri(URI.create("https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"))
                 .header("x-rapidapi-host", "mycookbook-io1.p.rapidapi.com")
                 .header("x-rapidapi-key", "e353e864a1msh21955970eb647ecp1b206fjsn1f74a04a741f")
-
                 .method("POST", HttpRequest.BodyPublishers.ofString(url))
                 .build();
         String response;
@@ -51,10 +48,11 @@ public class addRecipeApi {
             response = "shits fucked";
         }
 
-
+        model.addAttribute("dataParser" , dataParser);
         return ResponseEntity.ok(dataParser);
 
 
     }
+
 
 }

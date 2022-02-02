@@ -26,15 +26,14 @@
     <input type="text" name = "ingredientNote" id = "ingredientNote"/>
     <input type="submit" value="Submit Ingredient">
 </form>
-//another form down here for recipe steps
+
 <form id = stepRow" action="#" th:action="@{/addStep}" th:object="${step}" method="post">
     <input type="text" th:field="*{stepNumber}" id = "stepNumber"/>
     <input type="text" th:field="*{stepDescription}" id = "stepDescription"/>
 
     <input type="submit" value="Submit Step">
 </form>
-//two tables one with ingredients already added, another with steps
-//popup message to confirm recipe before final submit
+
 <input type="submit" value="All Done!">
     </form>
 

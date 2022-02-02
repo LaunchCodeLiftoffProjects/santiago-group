@@ -1,6 +1,7 @@
 package com.recipeproject.recipeproject.models;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 
@@ -16,15 +17,13 @@ public class Junction {
     @ManyToOne
     @JoinColumn(name = "ingredientId")
     private Ingredient ingredient;
-    @ManyToOne
-    @JoinColumn(name = "measurementId")
-    private Measurement measurement;
+    private String measurement;
 
-    private String amount;
+    private Double amount;
 
     private String prepNotes;
 
-    public Junction(Recipe recipe, Ingredient ingredient, Measurement measurement, String amount, String prepNotes) {
+    public Junction(Recipe recipe, Ingredient ingredient, String measurement, Double amount, String prepNotes) {
         this.recipe = recipe;
         this.ingredient = ingredient;
         this.measurement = measurement;
@@ -48,11 +47,11 @@ public class Junction {
         return ingredient;
     }
 
-    public Measurement getMeasurement() {
+    public String getMeasurement() {
         return measurement;
     }
 
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
@@ -68,11 +67,11 @@ public class Junction {
         this.ingredient = ingredient;
     }
 
-    public void setMeasurement(Measurement measurement) {
+    public void setMeasurement(String measurement) {
         this.measurement = measurement;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

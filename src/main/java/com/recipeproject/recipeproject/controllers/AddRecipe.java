@@ -26,8 +26,7 @@ public class AddRecipe {
     private RecipeStepRepository recipeStepRepository;
     @Autowired
     private JunctionRepository junctionRepository;
-    @Autowired
-    private MeasurementRepository measurementRepository;
+
 
     //This is totally untested other than ensuring it doesn't break the whole program
     @GetMapping("add")
@@ -43,8 +42,7 @@ public class AddRecipe {
         for (Ingredient ingredient: ingredientList) {
             Junction newRow = new Junction(newRecipe, ingredient, ingredient.getMeasurement(), ingredient.getAmount(), ingredient.getPrepNotes());
             junctionRepository.save(newRow);
-            Measurement newMeas = new Measurement(ingredient.getMeasurement().getMeasurement());
-            measurementRepository.save(newMeas);
+
             if(!ingredientRepository.findByName(ingredient.getName())){
                 ingredientRepository.save(ingredient);
             }
@@ -60,9 +58,9 @@ public class AddRecipe {
 
     @PostMapping("addIngredient")
     private String makeIngredientList(Model model, @RequestParam String ingredientName, @RequestParam String ingredientMeasure, @RequestParam String ingredientQuan, @RequestParam String ingredientNote){
-        Measurement tempMeas = new Measurement(ingredientMeasure);
 
-        Ingredient tempIngredient = new Ingredient(ingredientName, tempMeas, ingredientNote, ingredientQuan);
+        Double quantity = Double.valueOf(ingredientQuan);
+        Ingredient tempIngredient = new Ingredient(ingredientName, ingredientMeasure, ingredientNote, quantity);
         ingredientList.add(tempIngredient);
         return "dbTest";
 

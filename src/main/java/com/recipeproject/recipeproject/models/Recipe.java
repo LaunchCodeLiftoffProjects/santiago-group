@@ -1,6 +1,7 @@
 package com.recipeproject.recipeproject.models;
 
 import com.sun.istack.NotNull;
+import com.sun.istack.Nullable;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,6 +19,13 @@ public class Recipe {
 
     //@NotNull
     private String description;
+    @Nullable
+    private String cook_time;
+    @Nullable
+    private String total_time;
+    @Nullable
+    private String yield;
+
 
 
     @OneToMany
@@ -39,6 +47,16 @@ public class Recipe {
     public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
         this.name = name;
         this.description = description;
+        this.recipeSteps = recipeSteps;
+        this.ingredientList = ingredientList;
+    }
+
+    public Recipe(String name, String description, String cook_time, String total_time, String yield, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
+        this.name = name;
+        this.description = description;
+        this.cook_time = cook_time;
+        this.total_time = total_time;
+        this.yield = yield;
         this.recipeSteps = recipeSteps;
         this.ingredientList = ingredientList;
     }
@@ -77,6 +95,30 @@ public class Recipe {
 
     public void setIngredientList(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
+    }
+
+    public String getCook_time() {
+        return cook_time;
+    }
+
+    public void setCook_time(String cook_time) {
+        this.cook_time = cook_time;
+    }
+
+    public String getTotal_time() {
+        return total_time;
+    }
+
+    public void setTotal_time(String total_time) {
+        this.total_time = total_time;
+    }
+
+    public String getYield() {
+        return yield;
+    }
+
+    public void setYield(String yield) {
+        this.yield = yield;
     }
 
     @Override

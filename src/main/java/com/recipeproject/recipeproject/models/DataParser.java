@@ -18,6 +18,8 @@ public class DataParser {
     //this is set up weird because the json data is nested stupidly
     private List<Instructions> instructions;
 
+
+
     public String getName() {
         return name;
     }
@@ -70,13 +72,9 @@ public class DataParser {
         return ingredients;
     }
 
-    public List<Instructions> getInstructions() {
-        return instructions;
-    }
+    public List<Instructions> getInstructions() {        return instructions;    }
 
-    public void setInstructions(List<Instructions> instructions) {
-        this.instructions = instructions;
-    }
+    public void setInstructions(List<Instructions> instructions) {this.instructions = instructions;}
 
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;

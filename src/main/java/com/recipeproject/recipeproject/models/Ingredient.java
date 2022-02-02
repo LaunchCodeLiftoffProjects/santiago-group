@@ -20,13 +20,13 @@ public class Ingredient {
     private String name;
 
     @Transient
-    private Measurement measurement;
+    private String measurement;
 
     @Transient
     private String prepNotes;
 
     @Transient
-    private String amount;
+    private Double amount;
 
 
     public Ingredient() {
@@ -36,7 +36,7 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Ingredient(String name, Measurement measurement, String prepNotes, String amount) {
+    public Ingredient(String name, String measurement, String prepNotes, Double amount) {
         this.name = name;
         this.measurement = measurement;
         this.prepNotes = prepNotes;
@@ -55,11 +55,12 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Measurement getMeasurement() {
+
+    public String getMeasurement() {
         return measurement;
     }
 
-    public void setMeasurement(Measurement measurement) {
+    public void setMeasurement(String measurement) {
         this.measurement = measurement;
     }
 
@@ -71,11 +72,11 @@ public class Ingredient {
         this.prepNotes = prepNotes;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 }

@@ -23,6 +23,9 @@ public class RecipeStep {
 
     public RecipeStep() {
     }
+    public RecipeStep(Integer stepNumber, String stepDescription){
+
+    }
 
     public int getStepNumber() {
         return stepNumber;
