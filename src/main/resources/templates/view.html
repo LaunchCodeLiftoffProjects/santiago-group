@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <div th:replace="fragments :: page-header"></div>
+</head>
+<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+<link th:href="@{/css/profile.css}" rel="stylesheet" />
+<link th:href="@{/css/recipeView.css}" rel="stylesheet" />
+
+
+<div class="container">
+    <div class="border p-5 my-5" style="box-shadow: 0 0 40px rgba(51, 51, 51, .1)">
+        <div class="row">
+            <div class="col-md">
+                <h1 th:text="${recipe.name}"></h1>
+                <p class="recipe-description" th:text="${recipe.description}"></p>
+                <p class="recipe-specs">Preparation Time: <span> 30 minutes</span></p>
+                <h3>Ingredients: </h3>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <div class="col-sm-6" th:each="item : ${recipeIngredients}">
+                                <li>
+                                    <p><span th:if="${item.amount}" th:text="${item.amount}"></span>
+                                    <span th:if="${item.measurement}" th:text="${item.measurement.measurement}"></span>
+                                    <span th:text="${item.ingredient.name}"></span>
+                                    <span class="prep-notes" th:if="${item.prepNotes}" th:text="${item.prepNotes}"></span></p>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Directions:</h3>
+        <th:block th:each="step : ${recipe.recipeSteps}" class="recipe-text">
+            <p style="font-weight:500">Step <span th:text="${step.stepNumber}"></span>:</p>
+            <p><span th:text="${step.stepDescription}"></span></p>
+            <br/>
+        </th:block>
+    </div>
+</div>
+
+</body>
+</html>

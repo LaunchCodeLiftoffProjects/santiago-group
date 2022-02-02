@@ -19,7 +19,6 @@ public class Recipe {
     //@NotNull
     private String description;
 
-
     @OneToMany
     @JoinColumn(name = "recipeId")
     private List <RecipeStep> recipeSteps = new ArrayList<>();
@@ -28,7 +27,16 @@ public class Recipe {
     @JoinColumn(name = "ingredientId")
     private List <Ingredient> ingredientList = new ArrayList<>();
 
+    @OneToMany
+    @JoinColumn(name = "recipeId")
+    private List<Junction> ingredientJunctions;
+
     public Recipe() {
+    }
+
+    public Recipe(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
@@ -38,7 +46,7 @@ public class Recipe {
         this.ingredientList = ingredientList;
     }
 
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 
@@ -64,6 +72,14 @@ public class Recipe {
 
     public void setRecipeSteps(List<RecipeStep> recipeSteps) {
         this.recipeSteps = recipeSteps;
+    }
+
+    public List<Junction> getIngredientJunctions() {
+        return ingredientJunctions;
+    }
+
+    public void setIngredientJunctions(List<Junction> ingredientJunctions) {
+        this.ingredientJunctions = ingredientJunctions;
     }
 
     public List<Ingredient> getIngredientList() {

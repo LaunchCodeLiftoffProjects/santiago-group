@@ -1,0 +1,78 @@
+
+
+.card {
+  padding: 20px;
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.card-tag-dinner {
+    display: inline;
+    padding: 4px;
+    border: 4px solid #FD7E14;
+    border-radius:20px;
+    margin-left:0;
+    background-color:#FD7E14;
+    float:right;
+    color:white
+}
+
+.card-tag-breakfast {
+    display: inline;
+    padding: 4px;
+    border: 4px solid #FFC107;
+    border-radius:20px;
+    margin-left:0;
+    background-color:#FFC107;
+    float:right;
+    color:white
+}
+
+.card-tag-desserts {
+    display: inline;
+    padding: 4px;
+    border: 4px solid #20c997;
+    border-radius:20px;
+    margin-left:0;
+    background-color:#20c997;
+    float:right;
+    color:white
+}
+
+.card-tag-snacksapps {
+    display: inline;
+    padding: 4px;
+    border: 4px solid #dc3545;
+    border-radius:20px;
+    margin-left:0;
+    background-color:#dc3545;
+    float:right;
+    color:white
+}
+
+.card-tag-drinks {
+    display: inline;
+    padding: 4px;
+    border: 4px solid #6f42c1;
+    border-radius:20px;
+    margin-left:0;
+    background-color:#6f42c1;
+    float:right;
+    color:white
+}
+
+.card-tag-vegetarian {
+    display: inline;
+    padding: 4px;
+    border: 4px solid #198754;
+    border-radius:20px;
+    margin-left:0;
+    background-color:#198754;
+    float:right;
+    color:white
+}

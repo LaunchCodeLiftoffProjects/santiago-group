@@ -40,7 +40,7 @@ public class RecipeStep {
         this.stepDescription = stepDescription;
     }
 
-    public int getStepId() {
+    public Integer getStepId() {
         return stepId;
     }
 

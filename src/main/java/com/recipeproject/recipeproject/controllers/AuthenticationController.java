@@ -42,11 +42,13 @@ public class AuthenticationController {
 
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
+        session.setAttribute("username", user.getUsername());
     }
 
     @GetMapping("/register")
     public String displayRegistrationForm (Model model) {
         model.addAttribute(new RegisterFormDTO());
+        model.addAttribute("title", "Register");
         return "register";
     }
 
@@ -77,7 +79,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:";
+        return "redirect:/home";
     }
 
     @GetMapping("/login")
@@ -114,13 +116,13 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return "redirect:/home";
     }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
-        return "redirect:/login";
+        return "redirect:/home";
     }
 
 }
