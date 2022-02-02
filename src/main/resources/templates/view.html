@@ -34,8 +34,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md d-flex justify-content-end align-self-start pt-2">
-                <button type="button" class="btn btn-outline-danger">Favorite</button>
+                <form method="post" th:action="@{'/view/add-favorite/' + ${recipe.recipeId}}">
+                    <button type="submit" class="btn btn-outline-danger" th:disabled="${disabled}">Favorite</button>
+                </form>
             </div>
         </div>
         <h3>Directions:</h3>

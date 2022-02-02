@@ -1,5 +1,6 @@
 package com.recipeproject.recipeproject.controllers;
 
+import com.recipeproject.recipeproject.models.Recipe;
 import com.recipeproject.recipeproject.models.User;
 import com.recipeproject.recipeproject.models.data.RecipeRepository;
 import com.recipeproject.recipeproject.models.data.UserRepository;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/profile")
@@ -22,6 +26,9 @@ public class ProfileController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RecipeRepository recipeRepository;
 
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute("user", user.getId());
@@ -32,8 +39,14 @@ public class ProfileController {
     public String index(Model model, HttpServletRequest request) {
         HttpSession session = (request.getSession());
         Object username = session.getAttribute("username");
+        Object userId = session.getAttribute("user");
+
         model.addAttribute("myUsername", username);
 
+        User user = userRepository.findById((Integer)userId).get();
+        List<Recipe> favorites = user.getRecipeFavorites();
+
+        model.addAttribute("recipes", favorites);
         return "profile";
     }
 

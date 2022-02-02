@@ -52,4 +52,11 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
+    public void setRecipeFavorites(List<Recipe> recipeFavorites) {
+        this.recipeFavorites = recipeFavorites;
+    }
+
+    public List<Recipe> getRecipeFavorites() {
+        return recipeFavorites;
+    }
 }
