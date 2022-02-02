@@ -42,9 +42,12 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String description) {
+    public Recipe(String name, String description, String cook_time, String total_time, String yield) {
         this.name = name;
         this.description = description;
+        this.cook_time = cook_time;
+        this.total_time = total_time;
+        this.yield = yield;
     }
 
     public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
