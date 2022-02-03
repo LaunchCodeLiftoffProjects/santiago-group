@@ -15,6 +15,8 @@ public class RecipeStep {
     private Integer stepNumber;
 
     @NotNull
+    @Lob
+    @Column(length = 10000)
     private String stepDescription;
 
 
@@ -23,7 +25,7 @@ public class RecipeStep {
 
     public RecipeStep() {
     }
-    public RecipeStep(Integer stepNumber, String stepDescription){
+    public RecipeStep(Integer stepNumber, String stepDescription, Integer recipeId){
 
     }
 
@@ -47,5 +49,12 @@ public class RecipeStep {
         return stepId;
     }
 
+    public Integer getRecipeId() {
+        return recipeId;
     }
+
+    public void setRecipeId(Integer recipeId) {
+        this.recipeId = recipeId;
+    }
+}
 

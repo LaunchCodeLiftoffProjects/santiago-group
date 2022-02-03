@@ -52,18 +52,19 @@ public class AddFromWeb {
         recipeRepository.save(newRecipe);
 
         instructList = dataParser.getInstructions();
-        if(instructList.size() == 1) {
-            for (Instructions instructions : instructList) {
-                stepList = instructions.getSteps();
-            }
-        }
+        Instructions instructions = instructList.get(0);
+        stepList = instructions.getSteps();
 
+        int i = 1;
         for (String step : stepList
              ) {
-            Character a = step.charAt(0);
-            Integer stepNum = Character.getNumericValue(a);
-            RecipeStep stepHold = new RecipeStep(stepNum,step.substring(2) );
+            RecipeStep stepHold = new RecipeStep();
+            stepHold.setStepNumber(i);
+            stepHold.setStepDescription(step);
+            stepHold.setRecipeId(newRecipe.getRecipeId());
+            i++;
             recipeStepRepository.save(stepHold);
+
 
 
         }
@@ -75,7 +76,7 @@ public class AddFromWeb {
             Ingredient ingredient = new Ingredient();
             ingredient.setName(ingApi.getProduct());
             ingredients.add(ingredient);
-            if (!ingredientRepository.existsByName(ingredient.getName())) {
+            if(!ingredientRepository.existsByName(ingredient.getName())) {
                 ingredientRepository.save(ingredient);
             }
 

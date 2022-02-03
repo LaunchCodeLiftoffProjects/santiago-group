@@ -17,7 +17,8 @@ public class Recipe {
     @NotNull
     private String name;
 
-    //@NotNull
+    @Lob
+    @Column(length = 10000)
     private String description;
 
     private String cook_time;
