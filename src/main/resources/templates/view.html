@@ -25,7 +25,7 @@
                             <div class="col-sm-6" th:each="item : ${recipeIngredients}">
                                 <li>
                                     <p><span th:if="${item.amount}" th:text="${item.amount}"></span>
-                                    <span th:if="${item.measurement}" th:text="${item.measurement.measurement}"></span>
+                                    <span th:if="${item.measurement}" th:text="${item.measurement}"></span>
                                     <span th:text="${item.ingredient.name}"></span>
                                     <span class="prep-notes" th:if="${item.prepNotes}" th:text="${item.prepNotes}"></span></p>
                                 </li>
