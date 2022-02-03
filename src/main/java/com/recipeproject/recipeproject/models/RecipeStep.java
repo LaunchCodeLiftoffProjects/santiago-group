@@ -18,9 +18,6 @@ public class RecipeStep {
     private String stepDescription;
 
 
-    private Integer recipeId;
-
-
     public RecipeStep() {
     }
 

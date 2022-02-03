@@ -19,6 +19,12 @@ public class Recipe {
     //@NotNull
     private String description;
 
+    private String prepTime;
+
+    private String cookTime;
+
+    private String yield;
+
 
     @OneToMany
     @JoinColumn(name = "recipeId")
@@ -31,16 +37,23 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String description) {
+    public Recipe(String name, String description, String prepTime, String cookTime, String yield) {
         this.name = name;
         this.description = description;
+        this.prepTime = prepTime;
+        this.cookTime = cookTime;
+        this.yield = yield;
+
     }
 
-    public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList) {
+    public Recipe(String name, String description, List<RecipeStep> recipeSteps, List<Ingredient> ingredientList, String prepTime, String cookTime, String yield) {
         this.name = name;
         this.description = description;
         this.recipeSteps = recipeSteps;
         this.ingredientList = ingredientList;
+        this.prepTime = prepTime;
+        this.cookTime = cookTime;
+        this.yield = yield;
     }
 
     public Integer getRecipeId() {
@@ -77,6 +90,30 @@ public class Recipe {
 
     public void setIngredientList(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
+    }
+
+    public String getPrepTime() {
+        return prepTime;
+    }
+
+    public void setPrepTime(String prepTime) {
+        this.prepTime = prepTime;
+    }
+
+    public String getCookTime() {
+        return cookTime;
+    }
+
+    public void setCookTime(String cookTime) {
+        this.cookTime = cookTime;
+    }
+
+    public String getYield() {
+        return yield;
+    }
+
+    public void setYield(String yield) {
+        this.yield = yield;
     }
 
     @Override

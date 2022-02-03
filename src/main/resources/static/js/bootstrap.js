@@ -26,7 +26,7 @@ tr:nth-child(odd) {
 table.recipe {
     margin: 30px auto;
     border: 1px solid #e4e4e4;
-    width: 80%;
+    width: 100%;
 }
 
 table.recipe td:first-child {
@@ -34,7 +34,7 @@ table.recipe td:first-child {
 }
 
 table.recipe td:last-child {
-    width: 80%;
+    width: 100%;
 }
 
 label {

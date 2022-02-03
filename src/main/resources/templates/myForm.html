@@ -7,49 +7,135 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/js/action.js}"></script>
 <head>New Recipe Form</head>
+//////
 
-<body class="container body-content">
+<!-- Button to open the modal login form -->
+<button onclick="document.getElementById('RecipeTable').style.display='block'">Add Recipe</button>
 
-    <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-            <h1>Add Recipe</h1>
+<!-- The Modal -->
+<div id="RecipeTable" class="modal">
+  <span onclick="document.getElementById('RecipeTable').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
 
-            <label for="recipe name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Recipe Name" name="recipe name" required>
-            <br>
-            <br>
+    <!-- Modal Content -->
+    <form class="modal-content animate" action="/action_page.php">
 
-            <label for="description"><b>Description</b></label>
-            <input type="text" placeholder="Describe Your Dish" name="description" required>
-            <br>
-            <br>
+            <form action="/action_page.php" class="form-container">
 
-            <label for="ingredients"><b>Ingredients</b></label>
-            <table>
+                <label for="recipe name"><b>Name</b></label>
+                <input type="text" placeholder="Enter Recipe Name" name="recipe name" required>
+                <br>
+                <br>
 
-                <tr>
-                    <td><input type="text" placeholder="Number (2)" name="number" required></td>
-                    <td><input type="text" placeholder="Measurement (sticks)" name="measurement" required></td>
-                    <td><input type="text" placeholder="Food (butter)" name="food" required></td>
-                    <td><input type="text" placeholder="Prep (softened)" name="prepNotes" required></td>
-                </tr>
+                <label for="description"><b>Description</b></label>
+                <input type="text" placeholder="Describe Your Dish" name="description" required>
+                <br>
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content">
+                        <a href="#">Snacks and Appetizers</a>
+                        <a href="#">Breakfast</a>
+                        <a href="#">Lunch</a>
+                        <a href="#">Dinner</a>
+                        <a href="#">Dessert</a>
+                        <a href="#">Vegetarian</a>
+                        <a href="#">Vegan</a>
+                        <a href="#">Drinks</a>
+                    </div>
+                </div>
+                <br>
+                <br>
 
-            </table>
-            <br>
-            <br>
-
-            <label for="directions"><b>Directions</b></label>
-            <input type="text" placeholder="Enter Directions" name="directions" required>
-
-            <div>
-
-            <button type="submit"
-                    class="btn">Add Recipe</button>
-            <button type="button" class="btn cancel"
-                    onclick="closeForm()">Exit</button>
+                <label for="prep time"><b>Prep Time</b></label>
+                <input type="text" placeholder="hours/minutes" name="prep time" required>
+                <label for="cook time"><b>Cook Time</b></label>
+                <input type="text" placeholder="hours/minutes" name="cook time" required>
+                <label for="yield"><b>Yield</b></label>
+                <input type="text" placeholder="serving size" name="yield" required>
+                <br>
+                <br>
 
 
-            </div>
-        </form>
-    </div>
+                <label for="ingredients"><b>Ingredients</b></label>
+                <table id="RecipeTable">
+
+                    <tr>
+                        <td><input type="text" placeholder="Number (2)" name="number" required></td>
+                        <td><input type="text" placeholder="Measurement (sticks)" name="measurement" required></td>
+                        <td><input type="text" placeholder="Food (butter)" name="food" required></td>
+                        <td><input type="text" placeholder="Prep (softened)" name="prepNotes" required></td>
+                        <td><input type="submit" class="button" value="Add another line" onclick="addField(this);" /></td>
+                    </tr>
+
+                </table>
+                <br>
+                <br>
+
+                <label for="directions"><b>Directions</b></label>
+                <input type="text" placeholder="Enter Directions" name="directions" required>
+
+                <div>
+
+                    <button type="submit"
+                            class="btn">Add Recipe</button>
+                    <button type="button" class="btn cancel"
+                            onclick="closeForm()">Exit</button>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('RecipeTable').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
+</html>
+
+
+
+
+
+/////////
+<!--<body class="container body-content">-->
+
+<!--    <div class="form-popup" id="myForm">-->
+<!--        <form action="/action_page.php" class="form-container">-->
+<!--            <h1>Add Recipe</h1>-->
+
+<!--            <label for="recipe name"><b>Name</b></label>-->
+<!--            <input type="text" placeholder="Enter Recipe Name" name="recipe name" required>-->
+<!--            <br>-->
+<!--            <br>-->
+
+<!--            <label for="description"><b>Description</b></label>-->
+<!--            <input type="text" placeholder="Describe Your Dish" name="description" required>-->
+<!--            <br>-->
+<!--            <br>-->
+
+<!--            <label for="ingredients"><b>Ingredients</b></label>-->
+<!--            <table>-->
+
+<!--                <tr>-->
+<!--                    <td><input type="text" placeholder="Number (2)" name="number" required></td>-->
+<!--                    <td><input type="text" placeholder="Measurement (sticks)" name="measurement" required></td>-->
+<!--                    <td><input type="text" placeholder="Food (butter)" name="food" required></td>-->
+<!--                    <td><input type="text" placeholder="Prep (softened)" name="prepNotes" required></td>-->
+<!--                </tr>-->
+
+<!--            </table>-->
+<!--            <br>-->
+<!--            <br>-->
+
+<!--            <label for="directions"><b>Directions</b></label>-->
+<!--            <input type="text" placeholder="Enter Directions" name="directions" required>-->
+
+<!--            <div>-->
+
+<!--            <button type="submit"-->
+<!--                    class="btn">Add Recipe</button>-->
+<!--            <button type="button" class="btn cancel"-->
+<!--                    onclick="closeForm()">Exit</button>-->
+
+
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
 

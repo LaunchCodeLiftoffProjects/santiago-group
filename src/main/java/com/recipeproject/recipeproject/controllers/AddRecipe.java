@@ -67,7 +67,15 @@ public class AddRecipe {
         return "dbTest";
 
     }
+    @PostMapping("profile")
+    public String submitRecipe(Model model, Recipe newRecipe) {
+        recipeRepository.save(newRecipe);
+        return "profile";
+    }
+
 
 
 
 }
+
+

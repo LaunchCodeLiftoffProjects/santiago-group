@@ -20,7 +20,7 @@ public class FormController {
         return "<html>" +
                 "<body>" +
                 "<form>" +
-                "<input";
+                "<input>";
     }
 
     @GetMapping("/form")

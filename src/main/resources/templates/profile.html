@@ -80,14 +80,15 @@
             <button class = "open-button" th:onclick="openForm()" style="cursor: pointer;">Add Recipe</button>
         </div>
         <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
+            <form class="form-container" method="post">
 
-                <label for="recipe name"><b>Name</b></label>
-                <input type="text" placeholder="Enter Recipe Name" name="recipe name" required>
+
+                <label th:for="name"><b>Name</b></label>
+                <input type="text" placeholder="Enter Recipe Name" name="name" required>
                 <br>
                 <br>
 
-                <label for="description"><b>Description</b></label>
+                <label th:for="description"><b>Description</b></label>
                 <input type="text" placeholder="Describe Your Dish" name="description" required>
                 <br>
                 <div class="dropdown">
@@ -106,23 +107,23 @@
                 <br>
                 <br>
 
-                <label for="prep time"><b>Prep Time</b></label>
-                <input type="text" placeholder="hours/minutes" name="prep time" required>
-                <label for="cook time"><b>Cook Time</b></label>
-                <input type="text" placeholder="hours/minutes" name="cook time" required>
-                <label for="yield"><b>Yield</b></label>
+                <label th:for="prepTime"><b>Prep Time</b></label>
+                <input type="text" placeholder="hours/minutes" name="prepTime" required>
+                <label th:for="cookTime"><b>Cook Time</b></label>
+                <input type="text" placeholder="hours/minutes" name="cookTime" required>
+                <label th:for="yield"><b>Yield</b></label>
                 <input type="text" placeholder="serving size" name="yield" required>
                 <br>
                 <br>
 
 
-                <label for="ingredients"><b>Ingredients</b></label>
+                <label th:for="ingredientList" name = "ingredientList"><b>Ingredients</b></label>
                 <table id="RecipeTable">
 
                     <tr>
-                        <td><input type="text" placeholder="Number (2)" name="number" required></td>
+                        <td><input type="text" placeholder="Name of ingredient" name="ingredientList.name" required></td>
                         <td><input type="text" placeholder="Measurement (sticks)" name="measurement" required></td>
-                        <td><input type="text" placeholder="Food (butter)" name="food" required></td>
+                        <td><input type="text" placeholder="Amount (2)" name="amount" required></td>
                         <td><input type="text" placeholder="Prep (softened)" name="prepNotes" required></td>
                         <td><input type="submit" class="button" value="Add another line" onclick="addField(this);" /></td>
                     </tr>
@@ -131,8 +132,8 @@
                 <br>
                 <br>
 
-                <label for="directions"><b>Directions</b></label>
-                <input type="text" placeholder="Enter Directions" name="directions" required>
+                <label for="recipeSteps"><b>recipeSteps</b></label>
+                <input type="text" placeholder="Enter Directions" name="recipesSteps" required>
 
                 <div>
 
