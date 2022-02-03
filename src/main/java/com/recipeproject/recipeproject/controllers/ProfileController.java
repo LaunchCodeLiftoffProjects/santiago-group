@@ -62,7 +62,7 @@ public class ProfileController {
 
         setUserInSession(session, user);
 
-        return "profile";
+        return "redirect:/profile";
     }
 
     //profile
@@ -77,6 +77,6 @@ public class ProfileController {
         userRepository.save(user);
         setUserInSession(session, user);
 
-        return "profile";
+        return "redirect:/profile";
     }
 }

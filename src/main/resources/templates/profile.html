@@ -27,7 +27,7 @@
         <div class="tab-title">
             My Favorite Recipes
         </div>
-        <div th:if="${!(recipes.isEmpty())}">
+        <div th:if="${recipes}">
             <div th:replace="fragments :: recipe-cards"></div>
         </div>
     </div>
