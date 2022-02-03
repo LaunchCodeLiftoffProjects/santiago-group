@@ -13,20 +13,10 @@ import com.recipeproject.recipeproject.models.Junction;
 public class Ingredient {
 
     @Id
-    @GeneratedValue
-    private Integer ingredientId;
-
     @NotNull
     private String name;
 
-    @Transient
-    private String measurement;
 
-    @Transient
-    private String prepNotes;
-
-    @Transient
-    private Double amount;
 
 
     public Ingredient() {
@@ -36,16 +26,8 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Ingredient(String name, String measurement, String prepNotes, Double amount) {
-        this.name = name;
-        this.measurement = measurement;
-        this.prepNotes = prepNotes;
-        this.amount = amount;
-    }
 
-    public int getIngredientId() {
-        return ingredientId;
-    }
+
 
     public String getName() {
         return name;
@@ -56,27 +38,5 @@ public class Ingredient {
     }
 
 
-    public String getMeasurement() {
-        return measurement;
-    }
 
-    public void setMeasurement(String measurement) {
-        this.measurement = measurement;
-    }
-
-    public String getPrepNotes() {
-        return prepNotes;
-    }
-
-    public void setPrepNotes(String prepNotes) {
-        this.prepNotes = prepNotes;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
 }

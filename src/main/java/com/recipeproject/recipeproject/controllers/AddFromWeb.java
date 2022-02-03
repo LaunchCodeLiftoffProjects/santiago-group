@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipeproject.recipeproject.models.*;
 import com.recipeproject.recipeproject.models.data.*;
+import com.recipeproject.recipeproject.models.dto.IngredientResponseDTO;
+import com.recipeproject.recipeproject.models.dto.IngredientsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -22,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class addFromWeb {
+public class AddFromWeb {
     @Autowired
     RecipeRepository recipeRepository;
     @Autowired
@@ -36,7 +39,7 @@ public class addFromWeb {
     public String saveDPtoRecipe(DataParser dataParser, Model model){
         Recipe newRecipe = new Recipe();
         List<Instructions> instructList= new ArrayList<>();
-        List<Ingredient> ingList = new ArrayList<>();
+        List<IngredientParser> ingList = new ArrayList<>();
         List<String> stepList = new ArrayList<>();
 
         newRecipe.setName(dataParser.getName());
@@ -44,7 +47,7 @@ public class addFromWeb {
         newRecipe.setCook_time(dataParser.getCook_time());
         newRecipe.setYield(dataParser.getYield());
         newRecipe.setTotal_time(dataParser.getTotal_time());
-        newRecipe.setCook_time(dataParser.getCook_time());
+
 
         recipeRepository.save(newRecipe);
 
@@ -65,68 +68,66 @@ public class addFromWeb {
 
         }
         ingList = getIngredientInfo(dataParser);
-        newRecipe.setIngredientList(ingList);
-        for (Ingredient ingredient: ingList) {
-            Junction newRow = new Junction(newRecipe, ingredient, ingredient.getMeasurement(), ingredient.getAmount(), ingredient.getPrepNotes());
-            junctionRepository.save(newRow);
 
-            if (!ingredientRepository.findByName(ingredient.getName())) {
+       List<Ingredient> ingredients = new ArrayList<>();
+        for (IngredientParser ingredientParser: ingList) {
+            IngApi ingApi = ingredientParser.getIngredientParsed();
+            Ingredient ingredient = new Ingredient();
+            ingredient.setName(ingApi.getProduct());
+            ingredients.add(ingredient);
+            if (!ingredientRepository.existsByName(ingredient.getName())) {
                 ingredientRepository.save(ingredient);
             }
-        }
 
-            return "success";
+            Junction newRow = new Junction(newRecipe, ingredient, ingApi.getUnit(), ingApi.getQuantity(), ingApi.getPreparationNotes());
+            junctionRepository.save(newRow);
+
+
+        }
+        newRecipe.setIngredientList(ingredients);
+
+        return "success";
     }
 
 
-    public List<Ingredient> getIngredientInfo(DataParser dataParser){
+    public List<IngredientParser> getIngredientInfo(DataParser dataParser){
         List<String> ingredients = dataParser.getIngredients();
-        StringBuilder strbul=new StringBuilder();
-        strbul.append("ingredients: \r");
-        for(String str : ingredients)
-        {
-            strbul.append(str);
-            //for adding comma between elements
-            strbul.append(",\r");
+        IngredientsDTO ingredientsDTO = new IngredientsDTO();
+        ingredientsDTO.setIngredients(dataParser.getIngredients());
+        String ingredientsString = "";
+        try {
+          ingredientsString = new ObjectMapper().writeValueAsString(ingredientsDTO);
         }
-        //just for removing last comma
-        strbul.setLength(strbul.length()-1);
-        String str=strbul.toString();
+        catch(Exception e){
+
+
+        }
+
         RestTemplate restTemplate = new RestTemplate();
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://zestful.p.rapidapi.com/parseIngredients"))
-                .header("content-type", "application/json")
+                .header("Content-Type", "application/json")
                 .header("x-rapidapi-host", "zestful.p.rapidapi.com")
-                .header("x-rapidapi-key", "0ebc868e2mshdaa7507d4f54327p1618cdjsn98480f8cd15b")
-                .method("POST", HttpRequest.BodyPublishers.ofString(str))
+                .header("x-rapidapi-key", "e353e864a1msh21955970eb647ecp1b206fjsn1f74a04a741f")
+                .method("POST", HttpRequest.BodyPublishers.ofString(ingredientsString))
                 .build();
         String response;
 
-        IngredientParser ingredientParser = new IngredientParser();
+        IngredientResponseDTO ingredientResponseDTO = new IngredientResponseDTO();
         try {
             HttpResponse<String> apiResponse = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
             System.out.println(apiResponse.body());
             response = apiResponse.body();
             ObjectMapper objectMapper = new ObjectMapper();
-            ingredientParser = objectMapper.readValue(response, new TypeReference<List<IngredientParser>>() {  }).get(0);
+             ingredientResponseDTO = objectMapper.readValue(response, IngredientResponseDTO.class);
         }
         catch (Exception e){
             response = "shits fucked";
         }
         List<Ingredient> ingredients1 = new ArrayList<>();
-        List<IngApi> ingParse = ingredientParser.getIngredientParsed();
-        Ingredient ingredient = new Ingredient();
-        for (IngApi ingApi : ingParse
-             ) {
-            ingredient.setAmount(ingApi.getQuantity());
-            ingredient.setMeasurement(ingApi.getUnit());
-            ingredient.setName(ingApi.getProduct());
-            ingredient.setPrepNotes(ingApi.getPreparationNotes());
-            ingredients1.add(ingredient);
-        }
 
-        return ingredients1;
+        return ingredientResponseDTO.getResults();
 
 
     }

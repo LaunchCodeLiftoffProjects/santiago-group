@@ -3,9 +3,8 @@ package com.recipeproject.recipeproject.controllers;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipeproject.recipeproject.models.DataParser;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import com.recipeproject.recipeproject.models.dto.AddRecipeDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,13 +18,21 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Map;
 
-@RestController
-public class addRecipeApi {
+@Controller
+public class AddRecipeApi {
+
+
+
     private static String COOKBOOK_IO_URL = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi";
 
+    @Autowired
+    private AddFromWeb addFromWeb;
+
     @RequestMapping(value = "addurl", method = RequestMethod.POST)
-    public ResponseEntity<Object> getfromWeb(@RequestBody Map<String, String> body, Model model){
-        String url = body.get("url");
+    public String getfromWeb(@ModelAttribute AddRecipeDTO addRecipeDTO, Model model) {
+
+        String url = addRecipeDTO.getUrl();
+
         RestTemplate restTemplate = new RestTemplate();
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -42,17 +49,21 @@ public class addRecipeApi {
             System.out.println(apiResponse.body());
             response = apiResponse.body();
             ObjectMapper objectMapper = new ObjectMapper();
-            dataParser = objectMapper.readValue(response, new TypeReference<List<DataParser>>() {  }).get(0);
-        }
-        catch (Exception e){
+            dataParser = objectMapper.readValue(response, new TypeReference<List<DataParser>>() {
+            }).get(0);
+        } catch (Exception e) {
             response = "shits fucked";
         }
 
-        model.addAttribute("dataParser" , dataParser);
-        return ResponseEntity.ok(dataParser);
+        addFromWeb.saveDPtoRecipe(dataParser, model);
+
+        return "success";
 
 
     }
-
+    @GetMapping("addurl")
+    public String addurl (Model model){
+        return "addurl";
+    }
 
 }

@@ -8,6 +8,7 @@ import com.recipeproject.recipeproject.models.Ingredient;
 @Repository
 public interface IngredientRepository extends CrudRepository <Ingredient, Integer> {
 
-    @Query
-    boolean findByName(String name);
+
+    boolean existsByName(String name);
+
 }

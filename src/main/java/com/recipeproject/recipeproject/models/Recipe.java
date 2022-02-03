@@ -19,11 +19,11 @@ public class Recipe {
 
     //@NotNull
     private String description;
-    @Nullable
+
     private String cook_time;
-    @Nullable
+
     private String total_time;
-    @Nullable
+
     private String yield;
 
 

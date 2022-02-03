@@ -40,10 +40,10 @@ public class AddRecipe {
 
 
         for (Ingredient ingredient: ingredientList) {
-            Junction newRow = new Junction(newRecipe, ingredient, ingredient.getMeasurement(), ingredient.getAmount(), ingredient.getPrepNotes());
-            junctionRepository.save(newRow);
+            //Junction newRow = new Junction(newRecipe, ingredient, ingredient.getMeasurement(), ingredient.getAmount(), ingredient.getPrepNotes());
+            //junctionRepository.save(newRow);
 
-            if(!ingredientRepository.findByName(ingredient.getName())){
+            if(!ingredientRepository.existsByName(ingredient.getName())){
                 ingredientRepository.save(ingredient);
             }
 
@@ -60,8 +60,8 @@ public class AddRecipe {
     private String makeIngredientList(Model model, @RequestParam String ingredientName, @RequestParam String ingredientMeasure, @RequestParam String ingredientQuan, @RequestParam String ingredientNote){
 
         Double quantity = Double.valueOf(ingredientQuan);
-        Ingredient tempIngredient = new Ingredient(ingredientName, ingredientMeasure, ingredientNote, quantity);
-        ingredientList.add(tempIngredient);
+//        Ingredient tempIngredient = new Ingredient(ingredientName, ingredientMeasure, ingredientNote, quantity);
+  //      ingredientList.add(tempIngredient);
         return "dbTest";
 
     }

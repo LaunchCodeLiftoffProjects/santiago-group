@@ -15,7 +15,7 @@ public class Junction {
     @JoinColumn(name = "recipeId")
     private Recipe recipe;
     @ManyToOne
-    @JoinColumn(name = "ingredientId")
+    @JoinColumn(name = "name")
     private Ingredient ingredient;
     private String measurement;
 

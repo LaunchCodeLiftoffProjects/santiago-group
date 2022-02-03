@@ -27,6 +27,7 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-crypto'
 	implementation 'org.apache.commons:commons-collections4:4.4'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.6.3'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

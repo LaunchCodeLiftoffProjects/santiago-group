@@ -1,7 +1,9 @@
 package com.recipeproject.recipeproject.models;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Instructions {
 
     private List<String> steps;

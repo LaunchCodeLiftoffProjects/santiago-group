@@ -7,7 +7,7 @@ import java.util.List;
 public class IngredientParser {
 
     private double confidence;
-    private List<IngApi> ingredientParsed;
+    private IngApi ingredientParsed;
 
     public double getConfidence() {
         return confidence;
@@ -17,11 +17,11 @@ public class IngredientParser {
         this.confidence = confidence;
     }
 
-    public List<IngApi> getIngredientParsed() {
+    public IngApi getIngredientParsed() {
         return ingredientParsed;
     }
 
-    public void setIngredientParsed(List<IngApi> ingredientParsed) {
+    public void setIngredientParsed(IngApi ingredientParsed) {
         this.ingredientParsed = ingredientParsed;
     }
 }
