@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Your Own Recipe</title>
+</head>
+<body>
+<form action="/form/submit" method="post">
+    <h3>Recipe Name</h3>
+    <input type="text" id = "recipeName" name = "recipeName"/>
+    <h3>Recipe Description</h3>
+    <textarea id = "recipeDesc" name = "recipeDesc" class="form-control" rows="10" cols="40"></textarea>
+    <h3>Yield</h3>
+    <input type="text" id = "yeild" name = "yield"/>
+    <h3>Total Time</h3>
+    <input type="text" id = "totalTime" name = "totalTime"/>
+    <h3>Cook Time</h3>
+    <input type="text" id = "cookTime" name = "cookTime"/>
+    <h3>Ingredients</h3>
+    <textarea id = "ingredientList" class="form-control" name = "ingredientList" rows="20" cols="50">One Ingredient Per Line</textarea>
+
+    <h3>Steps</h3>
+    <textarea id = "stepList" name = "stepList" class="form-control" rows="20" cols="50">One Step Per Line</textarea>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
