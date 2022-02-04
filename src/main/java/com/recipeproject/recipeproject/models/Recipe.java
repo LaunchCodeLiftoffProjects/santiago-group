@@ -162,11 +162,14 @@ public class Recipe {
                 results.add(recipe);
             } else if (recipe.getDescription().toLowerCase().contains(lower_keyword)) {
                 results.add(recipe);
+            } else {
+                for (Ingredient ingredient : recipe.getIngredientList()) {
+                    String ingredientName = ingredient.getName();
+                    if (ingredientName.toLowerCase().contains(lower_keyword)) {
+                        results.add(recipe);
+                    }
+                }
             }
-            //Todo: once this model gets connected to the ingredient and recipeStep models
-            // (and any other relevant fields), add those to the if/else if statement, to
-            // check if they contain the keyword
-
         }
 
         return results;
