@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpSession;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -36,7 +37,7 @@ public class AddFromWeb {
     private JunctionRepository junctionRepository;
 
 
-    public String saveDPtoRecipe(DataParser dataParser, Model model){
+    public Recipe saveDPtoRecipe(DataParser dataParser, Model model){
         Recipe newRecipe = new Recipe();
         List<Instructions> instructList= new ArrayList<>();
         List<IngredientParser> ingList = new ArrayList<>();
@@ -86,8 +87,10 @@ public class AddFromWeb {
 
         }
         newRecipe.setIngredientList(ingredients);
+        return newRecipe;
 
-        return "success";
+
+
     }
 
 

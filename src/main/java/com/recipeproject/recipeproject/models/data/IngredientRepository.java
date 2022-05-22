@@ -11,4 +11,5 @@ public interface IngredientRepository extends CrudRepository <Ingredient, Intege
 
     boolean existsByName(String name);
 
+
 }

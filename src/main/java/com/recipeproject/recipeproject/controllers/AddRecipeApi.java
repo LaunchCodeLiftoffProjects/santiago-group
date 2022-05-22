@@ -3,6 +3,7 @@ package com.recipeproject.recipeproject.controllers;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipeproject.recipeproject.models.DataParser;
+import com.recipeproject.recipeproject.models.Recipe;
 import com.recipeproject.recipeproject.models.dto.AddRecipeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -55,9 +56,9 @@ public class AddRecipeApi {
             response = "shits fucked";
         }
 
-        addFromWeb.saveDPtoRecipe(dataParser, model);
-
-        return "success";
+        Recipe newRecipe = addFromWeb.saveDPtoRecipe(dataParser, model);
+        int recipeId = newRecipe.getRecipeId();
+        return "redirect:/view/" + recipeId;
 
 
     }

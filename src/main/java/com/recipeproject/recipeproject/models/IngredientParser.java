@@ -6,16 +6,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IngredientParser {
 
-    private double confidence;
+
     private IngApi ingredientParsed;
 
-    public double getConfidence() {
-        return confidence;
-    }
 
-    public void setConfidence(double confidence) {
-        this.confidence = confidence;
-    }
 
     public IngApi getIngredientParsed() {
         return ingredientParsed;
